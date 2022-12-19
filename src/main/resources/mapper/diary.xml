@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.showmual.dao.DiaryDao">
+
+	<resultMap id="diaryResult" type="diaryVo">
+		<result property="diaryNo" column="diaryNo" />
+		<result property="title" column="title" />
+		<result property="userId" column="userId" />
+		<result property="writeDate" column="writeDate" />
+		<result property="contents" column="contents" />
+		<result property="imagePath" column="imagePath" />
+		<result property="imageName" column="imageName" />
+	</resultMap>
+	
+	<select id="selectAllDiarys" resultMap="diaryResult" parameterType="Long">
+		<![CDATA[
+			select D.diaryNo, D.title, D.userId, DATE_FORMAT(D.writeDate, '%m월 %d일') AS writeDate, D.contents, D.imagePath, D.imageName
+			from diary_tbl D where userId=#{userId} order by D.writeDate desc
+		]]>
+	</select>
+	
+	<select id="selectDiary" resultType="diaryVo" parameterType="int">
+		<![CDATA[
+			select diaryNo, title, userId, DATE_FORMAT(writeDate, '%m월 %d일') AS writeDate, contents, imagePath, imageName
+			from diary_tbl where diaryNo = #{diaryNo}
+		]]>
+	</select>
+	
+	<insert id="insertNewDiary" parameterType="diaryVo">
+		<![CDATA[
+			insert into diary_tbl(userId, title, writeDate, contents, imagePath, imageName)
+			values (#{userId}, #{title}, default, #{contents}, #{imagePath}, #{imageName})
+		]]>
+	</insert>
+	
+	<update id="updateDiary" parameterType="diaryVo">
+		<![CDATA[	
+			update diary_tbl set Title= #{title}, contents=#{contents}, WriteDate=default
+			where diaryNo=#{diaryNo}
+		]]>
+	</update>
+	
+	<delete id="deleteDiary" parameterType="diaryVo">
+		<![CDATA[
+			delete from diary_tbl where diaryNo=#{diaryNo}
+		]]>
+	</delete>
+	
+</mapper>

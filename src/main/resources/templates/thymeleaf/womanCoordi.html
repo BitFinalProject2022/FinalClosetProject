@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	class="no-js">
+
+<head>
+<!-- Mobile Specific Meta -->
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Favicon-->
+<link rel="shortcut icon" th:href="@{/img/logo_small.png}">
+<!-- Author Meta -->
+<meta name="author" content="CodePixar">
+<!-- Meta Description -->
+<meta name="description" content="">
+<!-- Meta Keyword -->
+<meta name="keywords" content="">
+<!-- meta character set -->
+<meta charset="UTF-8">
+<!-- Site Title -->
+<title>7777 > 여자 코디 추천</title>
+<!--
+			CSS
+			============================================= -->
+<link rel="stylesheet" th:href="@{/css/linearicons.css}">
+<link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+<link rel="stylesheet" th:href="@{/css/themify-icons.css}">
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+<link rel="stylesheet" th:href="@{/css/owl.carousel.css}">
+<link rel="stylesheet" th:href="@{/css/nice-select.css}">
+<link rel="stylesheet" th:href="@{/css/nouislider.min.css}">
+<link rel="stylesheet" th:href="@{/css/ion.rangeSlider.css}" />
+<link rel="stylesheet" th:href="@{/css/ion.rangeSlider.skinFlat.css}" />
+<link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+<link rel="stylesheet" th:href="@{/css/main.css}">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<link rel="stylesheet" th:href="@{/css/spring.css}">
+<link
+	th:href="@{https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@300&display=swap}"
+	rel="stylesheet">
+</head>
+
+<style>
+
+a:active {
+	color: #5CD3F0;
+}
+
+.nav-link:hover {
+	color: #5CD3F0;
+}
+
+.nav-link:hover {
+	color: #5CD3F0 !important;
+	background-color: #fff !important;
+}
+/* CSS */
+.button-27 {
+	appearance: none;
+	background-color: #ffd4eb;
+	border: 3px solid #f7d7e8;
+	border-radius: 15px;
+	box-sizing: border-box;
+	color: #FFFFFF;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 16px;
+	line-height: normal;
+	margin: 0;
+	min-height: 50px;
+	min-width: 80px;
+	outline: none;
+	text-align: center;
+	text-decoration: none;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+	will-change: transform;
+}
+
+.button-27:disabled {
+	pointer-events: none;
+}
+
+.button-27:hover {
+	box-shadow: rgba(0, 0, 0, 0.25) 0 10px 15px;
+	transform: translateY(-2px);
+}
+
+.button-27:active {
+	box-shadow: none;
+	transform: translateY(0);
+}
+
+input {
+	margin: .4rem;
+}
+
+.button-27 {
+	margin-left: 100px;
+}
+
+table, th, td {
+	border: 0px solid #bcbcbc;
+	font-size: 13pt;
+	padding: 8px;
+}
+
+table {
+	width: 1200px;
+}
+
+.line {
+	border-bottom: 1px solid black;
+}
+
+.box {
+	width: 20px;
+	height: 20px;
+}
+
+
+.container2 {
+	display: flex;
+	width: 60%;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+}
+
+.card {
+	margin: 30px;
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+	overflow: hidden;
+	width: 300px;
+}
+
+.card-header img {
+	width: 100%;
+	height: 490px;
+	object-fit: cover;
+}
+
+.card-body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 20px;
+	min-height: 150px;
+	height: 100px;
+}
+
+.tag {
+	background: #cccccc;
+	border-radius: 50px;
+	font-size: 12px;
+	margin: 0;
+	color: #fff;
+	padding: 2px 10px;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+.tag-teal {
+	background-color: #5cd3f0;
+}
+
+.tag-purple {
+	background-color: #5e76bf;
+}
+
+.tag-pink {
+	background-color: #cd5b9f;
+}
+
+.card-body p {
+	font-size: 13px;
+	margin: 0 0 40px;
+	color: black;
+}
+
+.user {
+	display: flex;
+	margin-top: auto;
+}
+
+.user img {
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	margin-right: 10px;
+}
+
+.user-info h5 {
+	margin: 0;
+}
+
+.user-info small {
+	color: #545d7a;
+}
+
+#nickname .tag {
+	padding: 10px;
+	border-radius: 2px;
+	font-weight: 100;
+	display: inline-block;
+}
+
+.nav-link:hover {
+	color: #5CD3F0 !important;
+	background-color: #fff !important;
+}
+
+.card-header {
+    padding: 0.75mm 1.25mm;
+    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, .03);
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+}
+
+</style>
+
+<body>
+
+	<!-- Start Header Area -->
+	<header class="header_area sticky-header">
+		<div class="main_menu">
+			<nav class="navbar navbar-expand-lg navbar-light main_box">
+				<div class="container">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<a class="navbar-brand logo_h" th:href="@{/closet}"><img
+						th:src="@{/img/logo.png}" alt="" style="width: 70px;"></a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse offset"
+						id="navbarSupportedContent">
+						<ul class="nav navbar-nav menu_nav ml-auto">
+							<li class="nav-item active"><a class="nav-link"
+								th:href="@{/closet}" style="font-size: 11pt;">Home</a></li>
+
+							<li class="nav-item submenu dropdown"><a th:href="@{/#}"
+								class="nav-link dropdown-toggle" data-toggle="dropdown"
+								role="button" aria-haspopup="true" aria-expanded="false"
+								style="font-size: 11pt;">옷장</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/upload}" style="font-size: 11pt;">나만의
+											옷장 등록</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/closet}" style="font-size: 11pt;">나만의
+											옷장</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/diary}" style="font-size: 11pt;">다이어리</a></li>
+								</ul></li>
+							<li class="nav-item submenu dropdown"><a th:href="@{/#}"
+								class="nav-link dropdown-toggle" data-toggle="dropdown"
+								role="button" aria-haspopup="true" aria-expanded="false"
+								style="font-size: 11pt;">코디</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/manCoordi}" style="font-size: 11pt;">남자
+											코디 추천</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/womanCoordi}" style="font-size: 11pt;">여자
+											코디 추천</a></li>
+								</ul></li>
+							<li class="nav-item"><a class="nav-link"
+								th:href="@{/closet/community}" style="font-size: 11pt;">커뮤니티</a></li>
+							<li class="nav-item submenu dropdown"><a th:href="@{/#}"
+								class="nav-link dropdown-toggle" data-toggle="dropdown"
+								role="button" aria-haspopup="true" aria-expanded="false"
+								style="font-size: 11pt;">고객센터</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/notice}" style="font-size: 11pt;">공지사항
+									</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/contact}" style="font-size: 11pt;">CONTACT
+									</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/qna}" style="font-size: 11pt;">QnA </a></li>
+								</ul></li>
+							<li class="nav-item"><a class="nav-link"
+								th:href="@{/closet/login}" sec:authorize="isAnonymous()"
+								style="font-size: 11pt;">Login</a> <a class="nav-link"
+								th:href="@{/closet/mypage}" sec:authorize="isAuthenticated()"
+								style="font-size: 11pt; padding-right: 38px;">마이페이지</a> <a
+								class="nav-link" th:href="@{/closet/logout}"
+								sec:authorize="isAuthenticated()" style="font-size: 11pt;">Logout</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<!-- End Header Area -->
+
+	<!-- Start Banner Area -->
+
+	<!-- End Banner Area -->
+
+
+	<!--================Contact Area =================-->
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<center>
+		<img th:src="@{/img/woman.png}"
+			style="width: 470px; text-align: center;">
+	</center>
+	<br>
+	<br>
+	<form action="/closet/searchWomanCoordi" method="post">
+		<input type="hidden" th:name="${_csrf.parameterName}"
+			th:value="${_csrf.token}" />
+		<div>
+			<center>
+				<div style="color: black;">
+					<table>
+					<tr class="line">
+						<td>온도</td>
+						<td><label><input type="checkbox" name="temperature" value="0">0°C</label></td>
+						<td><label><input type="checkbox" name="temperature" value="5">5°C</label></td>
+						<td><label><input type="checkbox" name="temperature" value="9">9°C</label></td>
+						<td><label><input type="checkbox" name="temperature" value="12">12°C</label></td>
+						<td><label><input type="checkbox" name="temperature" value="17">17°C</label></td>
+						<td><label><input type="checkbox" name="temperature" value="20">20°C</label></td>
+						<td><label><input type="checkbox" name="temperature" value="23">23°C</label></td>
+						<td><label><input type="checkbox" name="temperature" value="28">28°C</label></td>
+					</tr>
+
+						<tr class="line">
+							<td>스타일</td>
+							<td><label><input type="checkbox" name="style"
+									value="1">캐쥬얼</label></td>
+							<td><label><input type="checkbox" name="style"
+									value="2">스트릿</label></td>
+							<td><label><input type="checkbox" name="style"
+									value="3">스포티</label></td>
+							<td><label><input type="checkbox" name="style"
+									value="7">페미닌</label></td>
+							<td><label><input type="checkbox" name="style"
+									value="8">로맨틱</label></td>
+							<td><label><input type="checkbox" name="style"
+									value="6">오피스</label></td>
+
+						</tr>
+						<tr class="line">
+							<td>해시태그</td>
+							<td><label><input type="checkbox" name="hashtag"
+									value="1">따뜻함</label></td>
+							<td><label><input type="checkbox" name="hashtag"
+									value="2">차가움</label></td>
+							<td><label><input type="checkbox" name="hashtag"
+									value="3">컬러풀</label></td>
+							<td><label><input type="checkbox" name="hashtag"
+									value="4">심플</label></td>
+							<td><label><input type="checkbox" name="hashtag"
+									value="5">소풍</label></td>
+							<td><label><input type="checkbox" name="hashtag"
+									value="6">여행</label></td>
+							<td><label><input type="checkbox" name="hashtag"
+									value="7">데일리</label></td>
+							<td><label><input type="checkbox" name="hashtag"
+									value="8">체크무늬</label></td>
+						</tr>
+						<tr>
+							<td>색상</td>
+							<td
+								style="color: red; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">
+								<label><input type="checkbox" name="color" value="4">빨강</label>
+							</td>
+							<td
+								style="color: white; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">
+								<label><input type="checkbox" name="color" value="1">흰색</label>
+							</td>
+							<td style="color: black;"><label><input
+									type="checkbox" name="color" value="2">검정</label></td>
+							<td
+								style="color: gray; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">
+								<label><input type="checkbox" name="color" value="3">회색</label>
+							</td>
+							<td
+								style="color: orange; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">
+								<label><input type="checkbox" name="color" value="5">주황</label>
+							</td>
+							<td
+								style="color: yellow; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">
+								<label><input type="checkbox" name="color" value="6">노랑</label>
+							</td>
+							<td
+								style="color: green; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">
+								<label><input type="checkbox" name="color" value="7">초록</label>
+							</td>
+							<td
+								style="color: blue; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">
+								<label><input type="checkbox" name="color" value="8">파랑</label>
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td
+								style="color: navy; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">
+								<label><input type="checkbox" name="color" value="9">남색</label>
+							</td>
+							<td
+								style="color: purple; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">
+								<label><input type="checkbox" name="color" value="10">보라</label>
+							</td>
+							<td
+								style="color: pink; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">
+								<label><input type="checkbox" name="color" value="11">분홍</label>
+							</td>
+							<td
+								style="color: yellowgreen; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">
+								<label><input type="checkbox" name="color" value="12">연두</label>
+							</td>
+							<td
+								style="color: skyblue; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">
+								<label><input type="checkbox" name="color" value="13">하늘</label>
+							</td>
+							<td
+								style="color: beige; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">
+								<label><input type="checkbox" name="color" value="14">베이지</label>
+							</td>
+							<td
+								style="color: #536349; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">
+								<label><input type="checkbox" name="color" value="15">카키</label>
+							</td>
+							<td
+								style="color: brown; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">
+								<label><input type="checkbox" name="color" value="16">브라운</label>
+							</td>
+						</tr>
+						<tr class="line">
+							<td></td>
+							<td
+								style="color: teal; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">
+								<label><input type="checkbox" name="color" value="17">청록색</label>
+							</td>
+							<td
+								style="color: #fbceb1; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">
+								<label><input type="checkbox" name="color" value="18">살구</label>
+							</td>
+							<td
+								style="color: #454545; text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;">
+								<label><input type="checkbox" name="color" value="19">먹색</label>
+							</td>
+						</tr>
+					</table>
+					<br>
+				</div>
+			</center>
+		</div>
+		<div style="padding-left: 1360px;">
+			<button type="button" class="button-27" onclick="ajaxExample()">조회</button>
+		</div>
+	</form>
+	<br>
+
+	<!-- 사진 나오는 곳 시작 -->
+	<center>
+		<div class="container2">
+		</div>
+	</center>
+
+
+			<br> <br> <br> <br> <br> <br> <br>
+
+			<!-- start footer Area -->
+			<footer class="footer-area section_gap">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-3  col-md-6 col-sm-6">
+							<div class="single-footer-widget">
+								<h6>비트교육센터 3조 7777</h6>
+								<img th:src="@{/img/logo.png}" alt=""
+									style="width: 80px; max-width: 100%; height: auto;">
+							</div>
+						</div>
+						<div class="col-lg-3  col-md-6 col-sm-6">
+							<div class="single-footer-widget">
+								<h6>GITHUB</h6>
+								<p></p>
+								<div class="footer-social d-flex align-items-center">
+									<a
+										th:href="@{https://github.com/orgs/BitFinalProject2022/repositories}"
+										target="_blank"><img th:src="@{/img/github.png}" alt=""
+										style="width: 60px;"></a>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3  col-md-6 col-sm-6">
+							<div class="single-footer-widget mail-chimp">
+								<h6 class="mb-20">QUICK MENU</h6>
+								<a th:href="@{/closet/upload}"> - 나만의 옷 등록</a><br> <a
+									th:href="@{/closet/closet}"> - 나만의 옷장</a><br> <a
+									th:href="@{/closet/diary}"> - 다이어리</a><br> <a
+									th:href="@{/closet/community}"> - 커뮤니티</a><br> <a
+									th:href="@{/closet/contact}"> - CONTACT US</a><br> <a
+									th:href="@{/closet/login}" sec:authorize="isAnonymous()"> -
+									LOGIN</a> <a th:href="@{/closet/logout}"
+									sec:authorize="isAuthenticated()"> - LOGOUT</a>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-6 col-sm-6">
+							<div class="single-footer-widget">
+								<h6>ADDRESS</h6>
+								<p style="color: #5CD3F0;">서울특별시 서초구 서초대로74길33 비트빌 3층</p>
+								<div class="footer-social d-flex align-items-center"></div>
+							</div>
+						</div>
+					</div>
+					<br> <br>
+					<div
+						class="footer-bottom d-flex justify-content-center align-items-center flex-wrap"
+						style="color: black;">
+						<p class="footer-text m-0">Copyright 2022. 7777 all rights
+							reserved.</p>
+					</div>
+				</div>
+			</footer>
+			<!-- End footer Area -->
+
+
+			<!--================End Contact Success and Error message Area =================-->
+			<script type="text/javascript">
+	
+		var option = {
+				
+		    dataType : 'json', //JSON형태로 전달도 가능합니다.
+		    url: "/closet/searchCoordi",
+		    success: function(res){
+		        alert("성공"); //res Object안에 msg에는 결과 메시지가 담겨있습니다.
+		    },
+		    error: function(res){
+		        alert("에러가 발생했습니다.")
+		    }
+		}
+		
+		
+		// 이미지 띄우기
+		function ajaxExample() {
+			
+			const query = 'input[name="temperature"]:checked';
+			const query2 = 'input[name="color"]:checked';
+			const query3 = 'input[name="style"]:checked';
+			const query4 = 'input[name="hashtag"]:checked';
+
+			const selectedEls =
+				document.querySelectorAll(query);
+			const selectedEls2 =
+				document.querySelectorAll(query2);
+			const selectedEls3 =
+				document.querySelectorAll(query3);
+			const selectedEls4 =
+				document.querySelectorAll(query4);
+			
+			// 선택된 목록에서 value 찾기
+			let result1 = '';
+			selectedEls.forEach((el) => {
+				result1 += el.value + ' ';
+			});
+
+			let result2 = '';
+			selectedEls2.forEach((el) => {
+				result2 += el.value + ' ';
+			});
+
+			let result3 = '';
+			selectedEls3.forEach((el) => {
+				result3 += el.value + ' ';
+			});
+
+			let result4 = '';
+			selectedEls4.forEach((el) => {
+				result4 += el.value + ' ';
+			});
+			
+			 // 사용자 ID(문자열)와 체크박스 값들(배열)을 name/value 형태로 담는다.
+		    var allData = { "temperature": result1,
+				    		"color": result2, 
+				    		"style": result3,
+				    		"hashtag": result4,};
+		    
+		    $.ajax({
+		        url:"/closet/searchWomanCoordi",
+		        type:'POST',
+		        data: allData,
+	 
+				//데이터 전송이 완료되면 출력되는 메시지
+		        success: function(data){
+		        	console.log("SUCCESS : ", data);
+		        	
+		        	document.querySelector('.container2').innerHTML = ""; // 그 전에 조회했던 항목들 삭제
+			        
+			        for (let item of data) {
+			            let img = document.createElement('img');
+			            
+			            let timehtml = ""
+			            timehtml+="<div class='card'>";
+			            timehtml+="<div class='card-header'>";
+			            timehtml+="<div id='image' style='text-align: center; padding: 20px;'>";
+			            timehtml+="<img src=" + "/image/category/woman/" + item.temperature + "/" + item.styleName + "/" + item.imageName + ">";
+			            timehtml+="</div>";
+			            timehtml+="</div>";
+			            timehtml+="</div>";
+			            
+			            $('.container2').append(timehtml);
+			            
+			        }
+		        	
+		        },
+		 
+				//에러가 발생되면 출력되는 메시지
+				error:
+					function(jqXHR, textStatus, errorThrown){
+					alert("에러 발생~~ \n" + textStatus + " : " + errorThrown);
+					self.close();
+				        }
+			});
+		}
+	
+	</script>
+
+			<script th:src="@{/js/vendor/jquery-2.2.4.min.js}"></script>
+			<script
+				th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js}"></script>
+			<script th:src="@{/js/vendor/bootstrap.min.js}"></script>
+			<script th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
+			<script th:src="@{/js/jquery.nice-select.min.js}"></script>
+			<script th:src="@{/js/jquery.sticky.js}"></script>
+			<script th:src="@{/js/nouislider.min.js}"></script>
+			<script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+			<script th:src="@{/js/owl.carousel.min.js}"></script>
+			<!--gmaps Js-->
+			<script
+				th:src="@{https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE}"></script>
+			<script th:src="@{/js/gmaps.min.js}"></script>
+			<script th:src="@{/js/main.js}"></script>
+			<script th:src="@{/js/chatresponses.js}"></script>
+			<script th:src="@{/js/chat.js}"></script>
+</body>
+
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	class="no-js">
+
+<head>
+<!-- Mobile Specific Meta -->
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Favicon-->
+<link rel="shortcut icon" th:href="@{/img/logo_small.png}">
+<!-- Author Meta -->
+<meta name="author" content="CodePixar">
+<!-- Meta Description -->
+<meta name="description" content="">
+<!-- Meta Keyword -->
+<meta name="keywords" content="">
+<!-- meta character set -->
+<meta charset="UTF-8">
+<!-- Site Title -->
+<title>7777 > 로그인</title>
+
+		<!-- CSS -->
+		<link rel="stylesheet" th:href="@{/css/linearicons.css}">
+		<link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+		<link rel="stylesheet" th:href="@{/css/themify-icons.css}">
+		<link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+		<link rel="stylesheet" th:href="@{/css/owl.carousel.css}">
+		<link rel="stylesheet" th:href="@{/css/nice-select.css}">
+		<link rel="stylesheet" th:href="@{/css/nouislider.min.css}">
+		<link rel="stylesheet" th:href="@{/css/ion.rangeSlider.css}" />
+		<link rel="stylesheet" th:href="@{/css/ion.rangeSlider.skinFlat.css}" />
+		<link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+		<link rel="stylesheet" th:href="@{/css/image.css}">
+		<link rel="stylesheet" th:href="@{/css/style.css}">
+		<link rel="stylesheet" th:href="@{/css/main.css}">
+		<link rel="stylesheet" th:href="@{/css/login.css}">
+	</head>
+
+	<style>
+		.cont {
+			margin: 0 auto;
+		}
+
+		.fieldError {
+			color: red;
+		}
+	</style>
+
+<body>
+
+	<!-- Start Header Area -->
+	<header class="header_area sticky-header">
+		<div class="main_menu">
+			<nav class="navbar navbar-expand-lg navbar-light main_box">
+				<div class="container">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<a class="navbar-brand logo_h" th:href="@{/closet}"><img
+						th:src="@{/img/logo.png}" alt="" style="width: 70px;"></a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse offset"
+						id="navbarSupportedContent">
+						<ul class="nav navbar-nav menu_nav ml-auto">
+							<li class="nav-item active"><a class="nav-link"
+								th:href="@{/closet}" style="font-size: 11pt;">Home</a></li>
+
+							<li class="nav-item submenu dropdown"><a th:href="@{/#}"
+								class="nav-link dropdown-toggle" data-toggle="dropdown"
+								role="button" aria-haspopup="true" aria-expanded="false"
+								style="font-size: 11pt;">옷장</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/upload}" style="font-size: 11pt;">나만의
+											옷장 등록</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/closet}" style="font-size: 11pt;">나만의
+											옷장</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/diary}" style="font-size: 11pt;">다이어리</a></li>
+								</ul></li>
+							<li class="nav-item submenu dropdown"><a th:href="@{/#}"
+								class="nav-link dropdown-toggle" data-toggle="dropdown"
+								role="button" aria-haspopup="true" aria-expanded="false"
+								style="font-size: 11pt;">코디</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/manCoordi}" style="font-size: 11pt;">남자
+											코디 추천</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/womanCoordi}" style="font-size: 11pt;">여자
+											코디 추천</a></li>
+								</ul></li>
+							<li class="nav-item"><a class="nav-link"
+								th:href="@{/closet/community}" style="font-size: 11pt;">커뮤니티</a></li>
+							<li class="nav-item submenu dropdown"><a th:href="@{/#}"
+								class="nav-link dropdown-toggle" data-toggle="dropdown"
+								role="button" aria-haspopup="true" aria-expanded="false"
+								style="font-size: 11pt;">고객센터</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/notice}" style="font-size: 11pt;">공지사항
+									</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/contact}" style="font-size: 11pt;">CONTACT
+									</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/qna}" style="font-size: 11pt;">QnA </a></li>
+								</ul></li>
+							<li class="nav-item"><a class="nav-link"
+								th:href="@{/closet/login}" sec:authorize="isAnonymous()"
+								style="font-size: 11pt;">Login</a> <a class="nav-link"
+								th:href="@{/closet/mypage}" sec:authorize="isAuthenticated()"
+								style="font-size: 11pt; padding-right: 38px;">마이페이지</a> <a
+								class="nav-link" th:href="@{/closet/logout}"
+								sec:authorize="isAuthenticated()" style="font-size: 11pt;">Logout</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<!-- End Header Area -->
+
+	<!-- Start Banner Area -->
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<!-- End Banner Area -->
+	<div class="cont">
+		<div class="form sign-in">
+			<h2 style="color: #5cd3f0;">Welcome :)</h2>
+			<div th:if="${param.error}" class="fieldError" style="text-align: center">아이디 혹은 비밀번호가 올바르지 않습니다.</div>
+			<form class="row login_form" action="/closet/login" method="post" id="contactForm">
+				<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
+				<div class="col-md-12 form-group">
+					<label><span>아이디</span> <input type="text" class="form-control" id="name" name="username"
+							placeholder="ID" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ID'"
+							required></label>
+				</div>
+				<div class="col-md-12 form-group">
+					<label> <span>패스워드</span> <input type="password" class="form-control" id="name" name="password"
+							placeholder="PASSWORD" onfocus="this.placeholder = ''"
+							onblur="this.placeholder = 'PASSWORD'" required></label> <br>
+				</div>
+				<div class="col-md-12 form-group" style="text-align: center">
+					<button type="submit" class="primary-btn">로그인</button>
+					<p style="line-height: 2px"></p>
+					<button type="button" class="primary-btn" onclick="location.href='/closet/findId'">ID 혹은 PW 찾기</button>
+				</div>
+			</form>
+		</div>
+		<div class="sub-cont">
+			<div class="img">
+				<div class="img__text m--up">
+					<h3 style="color:white">
+						<img th:src="@{/img/logo2.png}" style="width: 80px"> <br>
+						<br>
+						<br>7777에 오신 걸 환영합니다!
+					</h3>
+				</div>
+				<div class="img__text m--in">
+
+					<h3 style="color:white">
+						<img th:src="@{/img/logo2.png}" style="width: 80px"> <br>
+						<br>
+						<br>전 세계에 있는 친구, 가족, 지인들과 함께 이야기를 나눠보세요.
+					</h3>
+				</div>
+				<div class="img__btn">
+					<span class="m--up">회원가입</span> <span class="m--in">로그인</span>
+				</div>
+			</div>
+			<div class="form sign-up">
+				<h2 style="color: #5CD3F0; text-align: center;">회원가입</h2>
+				<form class="row login_form" action="/closet/signup" method="post" id="contactForm">
+					<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
+					<div class="col-md-12 form-group">
+						<label><span>아이디</span> <input type="text" pattern="[A-Za-z]+" class="form-control" id="id"
+								name="username" placeholder="ID" onfocus="this.placeholder = ''"
+								onblur="this.placeholder = 'ID'" onkeyup="this.value=this.value.replace(' ','')"
+								oninput="checkId()" required maxlength="12"> <span class="fieldError"
+								th:text="${valid_username}"></span> <span class="id_ok"
+								style="color: green; display: none;">사용 가능한 아이디입니다.</span>
+							<span class="id_already" style="color: red; display: none;">
+								이미 사용 중인 아이디입니다.</span> </label>
+					</div>
+					<div class="col-md-12 form-group">
+						<label><span>Nickname</span> <input type="text" class="form-control" id="nickname"
+								name="nickname" placeholder="NICKNAME" onfocus="this.placeholder = ''"
+								onblur="this.placeholder = 'NICKNAME'" onkeyup="this.value=this.value.replace(' ','')"
+								oninput="checkNickname()" required maxlength="8"> <span class="nickname_ok"
+								style="color: green; display: none;">사용
+								가능한 닉네임입니다.</span> <span class="nickname_already" style="color: red; display: none;">이미
+								사용 중인 닉네임입니다.</span> </label>
+					</div>
+					<div class="col-md-12 form-group">
+						<label><span>Email</span> <input type="text" class="form-control" id="email" name="email"
+								placeholder="EMAIL" onfocus="this.placeholder = ''" onblur="this.placeholder = 'EMAIL'"
+								onkeyup="this.value=this.value.replace(' ','')" required maxlength="30"> </label>
+					</div>
+					<div class="col-md-12 form-group">
+						<label><span>PASSWORD</span> <input type="password" class="form-control" id="pw1"
+								name="password" placeholder="PASSWORD" onfocus="this.placeholder = ''"
+								onblur="this.placeholder = 'PASSWORD'" onkeyup="this.value=this.value.replace(' ','')"
+								required maxlength="20">
+							<span class="fieldError" th:text="${valid_password}"></span> </label>
+					</div>
+					<div class="col-md-12 form-group">
+						<label><span>PASSWORD CHECK</span> <input type="password" class="form-control" id="pw2"
+								placeholder="PASSWORD CHECK" onfocus="this.placeholder = ''"
+								onblur="this.placeholder = 'PASSWORD CHECK'"
+								onkeyup="this.value=this.value.replace(' ','')" oninput="checkPassword()" required
+								maxlength="20"> <span class="password_ok" style="color: green; display: none;">비밀번호가
+								일치합니다.</span> <span class="password_fail" style="color: red; display: none;">비밀번호가 일치하지
+								않습니다.</span> </label>
+					</div>
+					<div class="col-md-12 form-group" style="text-align: center">
+						<button type="submit" class="primary-btn">회원가입</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		document.querySelector('.img__btn').addEventListener('click', function () {
+			document.querySelector('.cont').classList.toggle('s--signup');
+		});
+	</script>
+
+	<footer class="footer-area section_gap">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3  col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6>비트교육센터 3조 7777</h6>
+						<img th:src="@{/img/logo.png}" alt="" style="width: 80px; max-width: 100%; height: auto;">
+					</div>
+				</div>
+				<div class="col-lg-3  col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6>GITHUB</h6>
+						<p></p>
+						<div class="footer-social d-flex align-items-center">
+							<a th:href="@{https://github.com/orgs/BitFinalProject2022/repositories}"
+								target="_blank"><img th:src="@{/img/github.png}" alt="" style="width: 60px;"></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3  col-md-6 col-sm-6">
+					<div class="single-footer-widget mail-chimp">
+						<h6 class="mb-20">QUICK MENU</h6>
+						<a th:href="@{/closet/uplodad}"> - 나만의 옷 등록</a><br> <a th:href="@{/closet/closet}"> - 나만의
+							옷장</a><br> <a th:href="@{/closet/diary}"> - 다이어리</a><br> <a th:href="@{/closet/community}">
+							- 자유게시판</a><br> <a th:href="@{/closet/contact}"> - CONTACT US</a><br> <a
+							th:href="@{/closet/login}"> - LOGIN</a>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6>ADDRESS</h6>
+						<p style="color: #5CD3F0;">서울특별시 서초구 서초대로74길33 비트빌 3층</p>
+						<div class="footer-social d-flex align-items-center"></div>
+					</div>
+				</div>
+			</div>
+			<br> <br>
+			<div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap" style="color: black;">
+				<p class="footer-text m-0">Copyright 2022. 7777 all
+					rights reserved.</p>
+			</div>
+		</div>
+	</footer>
+	<!-- End footer Area -->
+	<script th:src="@{/js/vendor/jquery-2.2.4.min.js}"></script>
+	<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js}"></script>
+	<script th:src="@{/js/vendor/bootstrap.min.js}"></script>
+	<script th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
+	<script th:src="@{/js/jquery.nice-select.min.js}"></script>
+	<script th:src="@{/js/jquery.sticky.js}"></script>
+	<script th:src="@{/js/nouislider.min.js}"></script>
+	<script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+	<script th:src="@{/js/owl.carousel.min.js}"></script>
+	<!--gmaps Js-->
+	<script th:src="@{https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE}"></script>
+	<script th:src="@{/js/gmaps.min.js}"></script>
+	<script th:src="@{/js/main.js}"></script>
+
+	<script type="text/javascript">
+		// 아이디 실시간 유효성 검사
+		function checkId() {
+			let id = document.querySelector('#id').value;
+
+			$.ajax({
+				url: '/closet/idCheck',
+				type: 'POST',
+				data: { id: id },
+				success: function (cnt) {
+					if (cnt != 1 && id.length > 0) { // 사용 가능한 아이디
+						document.querySelector(".id_ok").style.display = "inline-block";
+						document.querySelector(".id_already").style.display = "none";
+
+					} else if (cnt == 1 && id.length > 0) { // 중복된 아이디
+						document.querySelector(".id_already").style.display = "inline-block";
+						document.querySelector(".id_ok").style.display = "none";
+					} else { // id에 아무 입력없으면 중복검사 문구 안보이도록
+						document.querySelector(".id_already").style.display = "none";
+						document.querySelector(".id_ok").style.display = "none";
+					}
+				},
+				error: function (e) {
+					console.log(e)
+					//alert("에러입니다.");
+				}
+			});
+		};
+
+
+		// 닉네임 실시간 유효성 검사
+		function checkNickname() {
+			let nickname = document.querySelector('#nickname').value;
+
+			$.ajax({
+				url: "/closet/nicknameCheck",
+				type: 'POST',
+				data: { nickname: nickname },
+				success: function (cnt) {
+					if (cnt != 1 && nickname.length > 0) { // 사용 가능한 아이디
+						document.querySelector(".nickname_ok").style.display = "inline-block";
+						document.querySelector(".nickname_already").style.display = "none";
+
+					} else if (cnt == 1 && nickname.length > 0) { // 중복된 아이디
+						document.querySelector(".nickname_already").style.display = "inline-block";
+						document.querySelector(".nickname_ok").style.display = "none";
+					} else { // id에 아무 입력없으면 중복검사 문구 안보이도록
+						document.querySelector(".nickname_already").style.display = "none";
+						document.querySelector(".nickname_ok").style.display = "none";
+					}
+				},
+				error: function (e) {
+					console.log(e)
+					//alert("에러입니다.");
+				}
+			});
+		};
+
+
+		//비밀번호 확인
+		function checkPassword() {
+			//console.log(document.querySelector('#pw1').value)
+			//console.log(document.querySelector('#pw2').value)
+			// 비밀번호 일치하지 않을 때
+			if (document.querySelector('#pw1').value != document.querySelector('#pw2').value) {
+				document.querySelector(".password_fail").style.display = "inline-block";
+				document.querySelector(".password_ok").style.display = "none";
+			}
+			// 비밀번호 일치할 때
+			else if (document.querySelector('#pw1').value == document.querySelector('#pw2').value) {
+				document.querySelector(".password_ok").style.display = "inline-block";
+				document.querySelector(".password_fail").style.display = "none";
+			}
+			// password에 아무 입력 없을 때
+			else {
+				document.querySelector(".password_ok").style.display = "none";
+				document.querySelector(".password_fail").style.display = "none";
+			}
+		};
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	class="no-js">
+<head>
+<meta charset="UTF-8">
+<!-- Mobile Specific Meta -->
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Favicon-->
+<link rel="shortcut icon" th:href="@{/img/logo_small.png}">
+<!-- Author Meta -->
+<meta name="author" content="CodePixar">
+<!-- Meta Description -->
+<meta name="description" content="">
+<!-- Meta Keyword -->
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- meta character set -->
+<meta charset="UTF-8">
+<!-- Site Title -->
+<title>7777</title>
+<style>
+.my-box {
+	width: 1200px;
+	margin: 30px;
+	color: black;
+}
+
+a:active {
+	color: #5CD3F0;
+}
+
+.nav-link:hover {
+	color: #5CD3F0;
+}
+
+.nav-link:hover {
+	color: #5CD3F0 !important;
+	background-color: #fff !important;
+}
+
+.col-lg-5 {
+	width: 1500px !important;
+}
+</style>
+<!-- CSS -->
+<link rel="stylesheet" th:href="@{/css/linearicons.css}">
+<link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+<link rel="stylesheet" th:href="@{/css/themify-icons.css}">
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+<link rel="stylesheet" th:href="@{/css/owl.carousel.css}">
+<link rel="stylesheet" th:href="@{/css/nice-select.css}">
+<link rel="stylesheet" th:href="@{/css/nouislider.min.css}">
+<link rel="stylesheet" th:href="@{/css/ion.rangeSlider.css}" />
+<link rel="stylesheet" th:href="@{/css/ion.rangeSlider.skinFlat.css}" />
+<link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+<link rel="stylesheet" th:href="@{/css/image.css}">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<link rel="stylesheet" th:href="@{/css/main.css}">
+<link rel="stylesheet" th:href="@{/css/login.css}">
+<link rel="stylesheet" th:href="@{/css/chat.css}">
+<link rel="stylesheet"
+	th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css}">
+
+</head>
+<body>
+	<header class="header_area sticky-header">
+		<div class="main_menu">
+			<nav class="navbar navbar-expand-lg navbar-light main_box">
+				<div class="container">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<a class="navbar-brand logo_h" th:href="@{/closet}"><img
+						th:src="@{/img/logo.png}" alt="" style="width: 70px;"></a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse offset"
+						id="navbarSupportedContent">
+						<ul class="nav navbar-nav menu_nav ml-auto">
+							<li class="nav-item active"><a class="nav-link"
+								th:href="@{/closet}" style="font-size: 11pt;">Home</a></li>
+
+							<li class="nav-item submenu dropdown"><a th:href="@{/#}"
+								class="nav-link dropdown-toggle" data-toggle="dropdown"
+								role="button" aria-haspopup="true" aria-expanded="false"
+								style="font-size: 11pt;">옷장</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/upload}" style="font-size: 11pt;">나만의
+											옷장 등록</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/closet}" style="font-size: 11pt;">나만의
+											옷장</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/diary}" style="font-size: 11pt;">다이어리</a></li>
+								</ul></li>
+							<li class="nav-item submenu dropdown"><a th:href="@{/#}"
+								class="nav-link dropdown-toggle" data-toggle="dropdown"
+								role="button" aria-haspopup="true" aria-expanded="false"
+								style="font-size: 11pt;">코디</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/manCoordi}" style="font-size: 11pt;">남자
+											코디 추천</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/womanCoordi}" style="font-size: 11pt;">여자
+											코디 추천</a></li>
+								</ul></li>
+							<li class="nav-item"><a class="nav-link"
+								th:href="@{/closet/community}" style="font-size: 11pt;">커뮤니티</a></li>
+							<li class="nav-item submenu dropdown"><a th:href="@{/#}"
+								class="nav-link dropdown-toggle" data-toggle="dropdown"
+								role="button" aria-haspopup="true" aria-expanded="false"
+								style="font-size: 11pt;">고객센터</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/notice}" style="font-size: 11pt;">공지사항
+									</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/contact}" style="font-size: 11pt;">CONTACT
+									</a></li>
+								</ul></li>
+							<li class="nav-item"><a class="nav-link"
+								th:href="@{/closet/login}" sec:authorize="isAnonymous()"
+								style="font-size: 11pt;">Login</a> 
+								<a class="nav-link"
+								th:href="@{/closet/mypage}" sec:authorize="hasRole('MEMBER')"
+								style="font-size: 11pt; padding-right: 38px;">마이페이지</a> 
+								<a class="nav-link"
+								th:href="@{/closet/admin/qna}" sec:authorize="hasRole('ADMIN')"
+								style="font-size: 11pt; padding-right: 38px;">Q&A 관리</a> 
+								<a
+								class="nav-link" th:href="@{/closet/logout}"
+								sec:authorize="isAuthenticated()" style="font-size: 11pt;">Logout</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<!-- start banner Area -->
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<center>
+		<div class="my-box">
+			<p style="color: #000; font-size: 15pt;">
+				<MARQUEE scrollamount="10">
+					<span style="color: #5CD3F0;"> <img src="/img/alarm.png"
+						alt="" style="width: 30px;">&nbsp;&nbsp; [공지]
+					</span> <a th:href="@{/closet/notice}" style="color: black;">사이트 개설 안내</a>
+					&nbsp; <span style="color: #5CD3F0;"> [공지]</span> <a
+						th:href="@{/closet/notice}" style="color: black;">개인정보 동의 활용</a>
+					&nbsp; <span style="color: #5CD3F0;"> [공지]</span> <a
+						th:href="@{/closet/notice}" style="color: black;">사이트 업데이트 안내</a>
+					&nbsp; <span style="color: #5CD3F0;"> [공지]</span> <a
+						th:href="@{/closet/notice}" style="color: black;">회원 가입 안내</a>
+					&nbsp;
+				</MARQUEE>
+				<!-- 움직이는 텍스트 -->
+			</p>
+		</div>
+	</center>
+	<br>
+	<br>
+	<br>
+	<section class="banner-area">
+		<div class="container">
+			<div class="active-banner-slider owl-carousel">
+				<!-- single-slide -->
+				<div class="row single-slide">
+					<div class="col-lg-5">
+						<div class="banner-content">
+							<h1>
+								여러분의<br>옷을<br> <span style="color: #5CD3F0;">정리</span>해드립니다.
+							</h1>
+							<div class="add-bag d-flex align-items-center">
+								<a class="add-btn" th:href="@{/closet/upload}"><span
+									class="lnr lnr-cross"></span></a> <span
+									class="add-text text-uppercase" style="font-size: 15pt;">옷
+									등록 바로가기</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-7">
+						<div class="banner-img">
+							<img class="img-fluid" src="img/banner/clothes2.png" alt="">
+						</div>
+					</div>
+				</div>
+				<!-- single-slide -->
+				<div class="row single-slide">
+					<div class="col-lg-5">
+						<div class="banner-content">
+							<h1>
+								<span style="color: #5CD3F0;">코디</span>를<br> <span style="color: #5CD3F0;">추천</span><br>해드립니다.
+							</h1>
+							<div class="add-bag d-flex align-items-center">
+								<a class="add-btn" th:href="@{/closet/manCoordi}"><span
+									class="lnr lnr-cross"></span></a> <span
+									class="add-text text-uppercase" style="font-size: 15pt;">
+									남자 코디 추천 바로가기</span>
+							</div>
+														<div class="add-bag d-flex align-items-center">
+								<a class="add-btn" th:href="@{/closet/womanCoordi}"><span
+									class="lnr lnr-cross"></span></a> <span
+									class="add-text text-uppercase" style="font-size: 15pt;">
+									여자 코디 추천 바로가기</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-7">
+						<div class="banner-img">
+							<img class="img-fluid" src="img/banner/banner2.jpeg" alt=""
+								style="width: 635px; height: 423.38px">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		</div>
+	</section>
+	<!-- End banner Area -->
+	<!--
+	<a sec:authorize="isAnonymous()" th:href="@{/closet/login}">로그인</a>
+	<br>
+    <a sec:authorize="isAuthenticated()" th:href="@{/closet/logout}">로그아웃</a>
+    <br>
+    <a sec:authorize="isAnonymous()" th:href="@{/closet/signup}">회원가입</a>
+    <br>
+    <a sec:authorize="hasRole('ROLE_MEMBER')" th:href="@{/closet/myinfo}">내정보</a>
+    <br>
+    <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}">어드민</a>
+     -->
+	<aside>
+		<div class="chat-bar-collapsible" style="z-index: 1">
+			<button id="chat-button" type="button" class="collapsible">
+				<i id="chat-icon" style="color: #fff;"
+					class="fa fa-fw fa-comments-o"></i>채팅 시작하기
+			</button>
+
+			<div class="content">
+				<div class="full-chat-block">
+					<!-- Message Container -->
+					<div class="outer-container">
+						<div class="chat-container">
+							<!-- Messages -->
+							<div id="chatbox">
+								<h5 id="chat-timestamp"></h5>
+								<p id="botStarterMessage" class="botText">
+									<span class="userText">Loading...</span>
+								</p>
+							</div>
+
+							<!-- User input box -->
+							<div class="chat-bar-input-block">
+								<div id="userInput">
+									<input id="textInput" class="input-box" type="text" name="msg"
+										placeholder="키워드를 작성해주세요.">
+									<p></p>
+								</div>
+
+								<div class="chat-bar-icons">
+									<i id="chat-icon" style="color: crimson;"
+										class="fa fa-fw fa-heart" onclick="heartButton()"></i> <i
+										id="chat-icon" style="color: #333;" class="fa fa-fw fa-send"
+										onclick="sendButton()"></i>
+								</div>
+							</div>
+
+							<div id="chat-bar-bottom">
+								<p></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</aside>
+
+
+
+
+	<footer class="footer-area section_gap">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3  col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6>비트교육센터 3조 7777</h6>
+						<img th:src="@{/img/logo.png}" alt=""
+							style="width: 80px; max-width: 100%; height: auto;">
+					</div>
+				</div>
+				<div class="col-lg-3  col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6>GITHUB</h6>
+						<p></p>
+						<div class="footer-social d-flex align-items-center">
+							<a
+								th:href="@{https://github.com/orgs/BitFinalProject2022/repositories}"
+								target="_blank"><img th:src="@{/img/github.png}" alt=""
+								style="width: 60px;"></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3  col-md-6 col-sm-6">
+					<div class="single-footer-widget mail-chimp">
+						<h6 class="mb-20">QUICK MENU</h6>
+						<a th:href="@{/closet/upload}"> - 나만의 옷 등록</a><br> <a
+							th:href="@{/closet/closet}"> - 나만의 옷장</a><br> <a
+							th:href="@{/closet/diary}"> - 다이어리</a><br> <a
+							th:href="@{/closet/community}"> - 커뮤니티</a><br> <a
+							th:href="@{/closet/contact}"> - CONTACT US</a><br> <a
+							th:href="@{/closet/login}" sec:authorize="isAnonymous()"> -
+							LOGIN</a> <a th:href="@{/closet/logout}"
+							sec:authorize="isAuthenticated()"> - LOGOUT</a>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6>ADDRESS</h6>
+						<p style="color: #5CD3F0;">서울특별시 서초구 서초대로74길33 비트빌 3층</p>
+						<div class="footer-social d-flex align-items-center"></div>
+					</div>
+				</div>
+			</div>
+			<br> <br>
+			<div
+				class="footer-bottom d-flex justify-content-center align-items-center flex-wrap"
+				style="color: black;">
+				<p class="footer-text m-0">Copyright 2022. 7777 all rights
+					reserved.</p>
+			</div>
+		</div>
+	</footer>
+	<script th:src="@{/js/vendor/jquery-2.2.4.min.js}"></script>
+	<script
+		th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js}"></script>
+	<script th:src="@{/js/vendor/bootstrap.min.js}"></script>
+	<script th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
+	<script th:src="@{/js/jquery.nice-select.min.js}"></script>
+	<script th:src="@{/js/jquery.sticky.js}"></script>
+	<script th:src="@{/js/nouislider.min.js}"></script>
+	<script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+	<script th:src="@{/js/owl.carousel.min.js}"></script>
+	<!--gmaps Js-->
+	<script
+		th:src="@{https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE}"></script>
+	<script th:src="@{/js/gmaps.min.js}"></script>
+	<script th:src="@{/js/main.js}"></script>
+	<script th:src="@{/js/chatresponses.js}"></script>
+	<script th:src="@{/js/chat.js}"></script>
+</body>
+</html>

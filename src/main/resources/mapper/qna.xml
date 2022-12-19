@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	
+<mapper namespace="com.showmual.dao.QnaDao">
+		
+	<resultMap id="showQnA" type="QnaVo">
+		<result property="qnaNo" column="qnaNo" />
+		<result property="email" column="email" />
+		<result property="username" column="username" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+		<result property="writeDate" column="writeDate" />
+	</resultMap>
+	
+
+	<select id="selectAllQnA" resultMap="showQnA" parameterType="QnaVo" >
+		<![CDATA[
+			select Q.qnaNo, Q.username, Q.email, Q.title, DATE_FORMAT(Q.writeDate, '%m월 %d일 %H:%i') AS writeDate, Q.content
+			from qna_tbl Q
+			order by Q.writeDate desc;
+		]]>
+	</select>
+	
+	<select id="selectQnA" resultType="qnaVo" parameterType="int">
+		<![CDATA[
+			select Q.qnaNo, Q.username,  Q.email, Q.title, DATE_FORMAT(Q.writeDate, '%m월 %d일 %H:%i') AS writeDate, Q.content
+			from qna_tbl Q
+			where Q.qnaNo = #{qnaNo};
+		]]>
+	</select>
+	
+	<insert id="insertNewQnA" parameterType="qnaVo">
+		<![CDATA[
+			insert into qna_tbl(email, username, title, writeDate, content)
+			values (#{email}, #{username}, #{title}, default, #{content})
+		]]>
+	</insert>
+	
+	<update id="updateQnA" parameterType="qnaVo">
+		<![CDATA[
+			update qna_tbl set Title= #{title}
+			where qnaNo = #{qnaNo}
+		]]>
+	</update>
+	
+	<delete id="deleteQnA" parameterType="qnaVo">
+		<![CDATA[	
+			delete from qna_tbl where qnaNo=#{qnaNo}
+		]]>
+	</delete>
+	
+</mapper>

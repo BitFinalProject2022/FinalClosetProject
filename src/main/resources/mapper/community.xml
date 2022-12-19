@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.showmual.dao.CommunityDao">
+
+	<resultMap id="articleResult" type="boardVo">
+		<result property="boardNo" column="boardNo" />
+		<result property="title" column="title" />
+		<result property="userId" column="userId" />
+		<result property="writeDate" column="writeDate" />
+		<result property="contents" column="contents" />
+		<result property="imagePath" column="imagePath" />
+		<result property="imageName" column="imageName" />
+	</resultMap>
+
+	<resultMap id="joinTotal" type="totalVo">
+		<result property="boardNo" column="boardNo" />
+		<result property="title" column="title" />
+		<result property="userId" column="userId" />
+		<result property="writeDate" column="writeDate" />
+		<result property="contents" column="contents" />
+		<result property="imagePath" column="imagePath" />
+		<result property="imageName" column="imageName" />
+		<result property="nickname" column="nickname" />
+		<result property="username" column="username" />
+	</resultMap>
+	
+	<resultMap id="likeResult" type="likeVo">
+		<result property="likeNo" column="likeNo" />
+		<result property="boardNo" column="boardNo" />
+		<result property="userId" column="userId" />
+		<result property="likeNum" column="likeNum" />
+	</resultMap>
+	
+	
+	<!-- 게시판 CRUD -->
+	
+	<select id="selectAllArticles" resultMap="joinTotal" parameterType="TotalVo" >
+		<![CDATA[
+			select B.boardNo, B.title, B.userId, DATE_FORMAT(B.writeDate, '%m월 %d일') AS writeDate, B.contents, B.imagePath, B.imageName, U.nickname
+			from board_tbl B
+			join users_tbl U on B.userId = U.id
+			order by B.writeDate desc;
+		]]>
+	</select>
+	
+	<select id="selectArticle" resultType="totalVo" parameterType="int">
+		<![CDATA[
+			select B.boardNo, B.title, B.userId, DATE_FORMAT(B.writeDate, '%m월 %d일') AS writeDate, B.contents, B.imageName, U.nickname, U.username
+			from board_tbl B
+			join users_tbl U on B.userId = U.id
+			where B.boardNo = #{boardNo};
+		]]>
+	</select>
+	
+	<insert id="insertNewArticle" parameterType="boardVo">
+		<![CDATA[
+			insert into board_tbl(userId, title, writeDate, contents, imagePath, imageName)
+			values (#{userId}, #{title}, default, #{contents}, #{imagePath}, #{imageName})
+		]]>
+	</insert>
+	
+	<update id="updateArticle" parameterType="boardVo">
+		<![CDATA[	
+			update board_tbl set Title= #{title}, contents=#{contents}, WriteDate=default
+			where boardNo = #{boardNo}
+		]]>
+	</update>
+	
+	<delete id="deleteArticle" parameterType="boardVo">
+		<![CDATA[	
+			delete from board_tbl where boardNo=#{boardNo}
+		]]>
+	</delete>
+	
+	
+	<!-- 좋아요 -->
+	<!-- 좋아요 눌렀는지 안눌렀는지 -->
+	<select id="findLike" resultType="int">
+		<![CDATA[
+			select count(*) from like_tbl where boardNo = #{boardNo} and userId = #{userId}
+		]]>
+	</select>
+	
+	<select id="countLike" resultType="int">
+		<![CDATA[
+			select count(*) from like_tbl where boardNo = #{boardNo}
+		]]>
+	</select>
+	
+	<insert id="likeUp">
+		<![CDATA[
+			insert into like_tbl (likeNo, boardNo, userId, likeNum)
+			values((select * from (select max(likeNo)+1 from like_tbl) next), #{boardNo}, #{userId}, 1)
+		]]>
+	</insert>
+	
+	<delete id="likeDown">
+		<![CDATA[
+	  		delete from like_tbl where boardNo = #{boardNo} and userId = #{userId}
+	  	]]>
+	</delete>
+	
+	
+</mapper>

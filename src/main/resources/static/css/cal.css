@@ -1,0 +1,18 @@
+body {
+  padding: 5em;
+}
+
+.fc-event[href] {
+  color: #FFF;
+    text-decoration: none;
+}
+
+.fc-unthemed .fc-today {
+  background: #F1F2F2;
+  border-bottom: 5px solid #5AFD68;
+}
+
+.fc-event {
+    padding: .6em;
+    border-radius: 0;
+}

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	class="no-js">
+
+<head>
+<!-- Mobile Specific Meta -->
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Favicon-->
+<link rel="shortcut icon" th:href="@{/img/logo_small.png}">
+<!-- Author Meta -->
+<meta name="author" content="CodePixar">
+<!-- Meta Description -->
+<meta name="description" content="">
+<!-- Meta Keyword -->
+<meta name="keywords" content="">
+<!-- meta character set -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Site Title -->
+<title>7777 > 커뮤니티</title>
+<!--
+		CSS
+		======================= -->
+<link rel="stylesheet" th:href="@{/css/linearicons.css}">
+<link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+<link rel="stylesheet" th:href="@{/css/themify-icons.css}">
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+<link rel="stylesheet" th:href="@{/css/owl.carousel.css}">
+<link rel="stylesheet" th:href="@{/css/nice-select.css}">
+<link rel="stylesheet" th:href="@{/css/nouislider.min.css}">
+<link rel="stylesheet" th:href="@{/css/ion.rangeSlider.css}" />
+<link rel="stylesheet" th:href="@{/css/ion.rangeSlider.skinFlat.css}" />
+<link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+<link rel="stylesheet" th:href="@{/css/main.css}">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<link rel="stylesheet" th:href="@{/css/button.css}">
+<link rel="stylesheet"
+	th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css}" />
+<style>
+@import
+	url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+	box-sizing: border-box;
+}
+
+.container2 {
+	display: flex;
+	width: 60%;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+}
+
+.card {
+	margin: 10px;
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+	overflow: hidden;
+	width: 300px;
+}
+
+.card-header img {
+	width: 100%;
+	height: 350px;
+	object-fit: cover;
+}
+
+.card-body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 20px;
+	min-height: 150px;
+	height: 100px;
+}
+
+.tag {
+	background: #cccccc;
+	border-radius: 50px;
+	font-size: 12px;
+	margin: 0;
+	color: #fff;
+	padding: 2px 10px;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+.tag-teal {
+	background-color: #5cd3f0;
+}
+
+.tag-purple {
+	background-color: #5e76bf;
+}
+
+.tag-pink {
+	background-color: #cd5b9f;
+}
+
+.card-body p {
+	font-size: 13px;
+	margin: 0 0 40px;
+	color: black;
+}
+
+.user {
+	display: flex;
+	margin-top: auto;
+}
+
+.user img {
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	margin-right: 10px;
+}
+
+.user-info h5 {
+	margin: 0;
+}
+
+.user-info small {
+	color: #545d7a;
+}
+
+#nickname .tag {
+	padding: 10px;
+	border-radius: 2px;
+	font-weight: 100;
+	display: inline-block;
+}
+
+.nav-link:hover {
+	color: #5CD3F0 !important;
+	background-color: #fff !important;
+}
+
+
+
+
+</style>
+</head>
+<body>
+<!-- Start Header Area -->
+	<header class="header_area sticky-header">
+		<div class="main_menu">
+			<nav class="navbar navbar-expand-lg navbar-light main_box">
+				<div class="container">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<a class="navbar-brand logo_h" th:href="@{/closet}"><img
+						th:src="@{/img/logo.png}" alt="" style="width: 70px;"></a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse offset"
+						id="navbarSupportedContent">
+						<ul class="nav navbar-nav menu_nav ml-auto">
+							<li class="nav-item active"><a class="nav-link"
+								th:href="@{/closet}" style="font-size: 11pt;">Home</a></li>
+
+							<li class="nav-item submenu dropdown"><a th:href="@{/#}"
+								class="nav-link dropdown-toggle" data-toggle="dropdown"
+								role="button" aria-haspopup="true" aria-expanded="false"
+								style="font-size: 11pt;">옷장</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/upload}" style="font-size: 11pt;">나만의
+											옷장 등록</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/closet}" style="font-size: 11pt;">나만의
+											옷장</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/diary}" style="font-size: 11pt;">다이어리</a></li>
+								</ul></li>
+							<li class="nav-item submenu dropdown"><a th:href="@{/#}"
+								class="nav-link dropdown-toggle" data-toggle="dropdown"
+								role="button" aria-haspopup="true" aria-expanded="false"
+								style="font-size: 11pt;">코디</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/manCoordi}" style="font-size: 11pt;">남자
+											코디 추천</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/womanCoordi}" style="font-size: 11pt;">여자
+											코디 추천</a></li>
+								</ul></li>
+							<li class="nav-item"><a class="nav-link"
+								th:href="@{/closet/community}" style="font-size: 11pt;">커뮤니티</a></li>
+							<li class="nav-item submenu dropdown"><a th:href="@{/#}"
+								class="nav-link dropdown-toggle" data-toggle="dropdown"
+								role="button" aria-haspopup="true" aria-expanded="false"
+								style="font-size: 11pt;">고객센터</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/notice}" style="font-size: 11pt;">공지사항
+									</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/contact}" style="font-size: 11pt;">CONTACT
+									</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/qna}" style="font-size: 11pt;">QnA </a></li>
+								</ul></li>
+							<li class="nav-item"><a class="nav-link"
+								th:href="@{/closet/login}" sec:authorize="isAnonymous()"
+								style="font-size: 11pt;">Login</a> <a class="nav-link"
+								th:href="@{/closet/mypage}" sec:authorize="isAuthenticated()"
+								style="font-size: 11pt; padding-right: 38px;">마이페이지</a> <a
+								class="nav-link" th:href="@{/closet/logout}"
+								sec:authorize="isAuthenticated()" style="font-size: 11pt;">Logout</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</header>
+<!-- End Banner Area -->
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<center>
+	<img th:src="@{/img/page3.png}" alt="" style="width: 200px;"><br>
+	<br> <br> <br>
+	<div style="text-align: right; width: 53%;">
+		<a th:href="@{/closet/communityUpload}"><button type="submit"
+				value="submit" class="button-27">Upload</button></a>
+	</div>
+	<br>
+	<div class="container2">
+		<div class="card" th:each="community: ${communityList}">
+			<!-- 누르면 상세보기 페이지로 넘어가도록 (타임리프에서는 파라미터 같이 넘길 때 아래와 같이 쓴다.) -->
+			<div class="card-header" th:onclick="|location.href ='@{viewCommunity(boardNo=${community.boardNo})}'|" style="cursor: pointer;" >
+				
+				<div id="image">
+					<img th:src="@{'/image/' + 'community/' + ${community.imageName}}"
+						alt="rover" />
+				</div>
+				<div class="card-body">
+					<span style="color:black; text-decoration: bold;" th:text="${community.writeDate}"></span>
+					<span id="nickname"
+						style="color: #000;"
+						th:text="${community.nickname}"></span><br>
+					<span id="title" style=" color: #5cd3f0; font-size: 13pt"
+						th:text="${community.title}"></span>
+					<span id="contents" style="color: black;"
+						th:text="${community.contents}"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br> <br>
+</center>
+
+<!-- start footer Area -->
+<footer class="footer-area section_gap">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3  col-md-6 col-sm-6">
+				<div class="single-footer-widget">
+					<h6>비트교육센터 3조 7777</h6>
+					<img th:src="@{/img/logo.png}" alt=""
+						style="width: 80px; max-width: 100%; height: auto;">
+				</div>
+			</div>
+			<div class="col-lg-3  col-md-6 col-sm-6">
+				<div class="single-footer-widget">
+					<h6>GITHUB</h6>
+					<p></p>
+					<div class="footer-social d-flex align-items-center">
+						<a
+							th:href="@{https://github.com/orgs/BitFinalProject2022/repositories}"
+							target="_blank"><img th:src="@{/img/github.png}" alt=""
+							style="width: 60px;"></a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3  col-md-6 col-sm-6">
+				<div class="single-footer-widget mail-chimp">
+					<h6 class="mb-20">QUICK MENU</h6>
+					<a th:href="@{/closet/upload}"> - 나만의 옷 등록</a><br> <a
+						th:href="@{/closet/closet}"> - 나만의 옷장</a><br> <a
+						th:href="@{/closet/diary}"> - 다이어리</a><br> <a
+						th:href="@{/closet/community}"> - 커뮤니티</a><br> <a
+						th:href="@{/closet/contact}"> - CONTACT US</a><br> <a
+						th:href="@{/closet/login}" sec:authorize="isAnonymous()"> -
+						LOGIN</a> <a th:href="@{/closet/logout}"
+						sec:authorize="isAuthenticated()"> - LOGOUT</a>
+				</div>
+			</div>
+			<div class="col-lg-2 col-md-6 col-sm-6">
+				<div class="single-footer-widget">
+					<h6>ADDRESS</h6>
+					<p style="color: #5cd3f0;">서울특별시 서초구 서초대로74길33 비트빌 3층</p>
+					<div class="footer-social d-flex align-items-center"></div>
+				</div>
+			</div>
+		</div>
+		<br> <br>
+		<div
+			class="footer-bottom d-flex justify-content-center align-items-center flex-wrap"
+			style="color: black;">
+			<p class="footer-text m-0">Copyright 2022. 7777 all rights
+				reserved.</p>
+		</div>
+	</div>
+</footer>
+<!-- End footer Area -->
+
+
+<script th:src="@{/js/vendor/jquery-2.2.4.min.js}"></script>
+<script
+	th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js}"></script>
+<script th:src="@{/js/vendor/bootstrap.min.js}"></script>
+<script th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
+<script th:src="@{/js/jquery.nice-select.min.js}"></script>
+<script th:src="@{/js/jquery.sticky.js}"></script>
+<script th:src="@{/js/nouislider.min.js}"></script>
+<script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+<script th:src="@{/js/owl.carousel.min.js}"></script>
+<!--gmaps Js-->
+<script
+	th:src="@{https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE}"></script>
+<script th:src="@{/js/gmaps.min.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	
+<mapper namespace="com.showmual.dao.ClosetDao">
+		
+	<resultMap id="bigCategoryList" type="bigCategoryVo">
+		<result property="big_category_code" column="big_category_code" />
+		<result property="big_category_name" column="big_category_name" />
+	</resultMap>
+	
+	<resultMap id="smallCategoryList" type="smallCategoryVo">
+		<result property="small_category_code" column="small_category_code" />
+		<result property="small_category_name" column="small_category_name" />
+		<result property="big_category_code" column="big_category_code" />
+	</resultMap>
+	
+	<resultMap id="selectImagePath" type="ClosetVo">
+		<result property="itemId" column="itemId" />
+		<result property="userId" column="userId" />
+		<result property="smallCategoryCode" column="smallCategoryCode" />
+		<result property="bigCategoryCode" column="bigCategoryCode" />
+		<result property="imagePath" column="imagePath" />
+		<result property="imageName" column="imageName" />
+	</resultMap>
+	
+	
+	<select id="selectBigCategory" resultMap="bigCategoryList">
+		<![CDATA[
+			select * from big_category order by big_category_code;
+		]]>
+	</select>
+	
+	<select id="selectSmallCategory" resultMap="smallCategoryList"  parameterType="SmallCategoryVo">
+		<![CDATA[
+			select * from small_category where big_category_code=#{big_category_code}
+			order by small_category_code;
+		]]>
+	</select>
+	
+	<select id="selectImagePath" resultMap="selectImagePath" parameterType="ClosetVo">
+		<![CDATA[
+			select * from closet_tbl
+			where bigCategoryCode=#{bigCategoryCode}
+				and smallCategoryCode=#{smallCategoryCode} 
+				and userId=#{userId}
+			order by itemId;
+		]]>
+	</select>
+	
+</mapper>

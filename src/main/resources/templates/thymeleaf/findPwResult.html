@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	class="no-js">
+
+<head>
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Favicon-->
+	<link rel="shortcut icon" th:href="@{/img/logo.png}">
+	<!-- Author Meta -->
+	<meta name="author" content="CodePixar">
+	<!-- Meta Description -->
+	<meta name="description" content="">
+	<!-- Meta Keyword -->
+	<meta name="keywords" content="">
+	<!-- meta character set -->
+	<meta charset="UTF-8">
+	<!-- Site Title -->
+	<title>7777</title>
+	<!--
+			CSS
+			============================================= -->
+	<link rel="stylesheet" th:href="@{/css/linearicons.css}" />
+	<link rel="stylesheet" th:href="@{/css/font-awesome.min.css}" />
+	<link rel="stylesheet" th:href="@{/css/themify-icons.css}" />
+	<link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
+	<link rel="stylesheet" th:href="@{/css/owl.carousel.css}" />
+	<link rel="stylesheet" th:href="@{/css/nice-select.css}" />
+	<link rel="stylesheet" th:href="@{/css/nouislider.min.css}" />
+	<link rel="stylesheet" th:href="@{/css/ion.rangeSlider.css}" />
+	<link rel="stylesheet" th:href="@{/css/ion.rangeSlider.skinFlat.css}" />
+	<link rel="stylesheet" th:href="@{/css/magnific-popup.css}" />
+	<link rel="stylesheet" th:href="@{/css/main.css}" />
+	<link rel="stylesheet" th:href="@{/css/style.css}" />
+	<link rel="stylesheet" th:href="@{/css/spring.css}" />
+	<link th:href="@{https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@300&display=swap}"
+		rel="stylesheet">
+</head>
+
+<style>
+	/* CSS */
+	.button-27 {
+		appearance: none;
+		background-color: #ffb7e9;
+		border: 3px solid #ffe1f6;
+		border-radius: 15px;
+		box-sizing: border-box;
+		color: #FFFFFF;
+		cursor: pointer;
+		display: inline-block;
+		font-size: 16px;
+		line-height: normal;
+		margin: 0;
+		min-height: 50px;
+		min-width: 80px;
+		outline: none;
+		text-align: center;
+		text-decoration: none;
+		user-select: none;
+		-webkit-user-select: none;
+		touch-action: manipulation;
+		will-change: transform;
+	}
+
+	.button-27:disabled {
+		pointer-events: none;
+	}
+
+	.button-27:hover {
+		box-shadow: rgba(0, 0, 0, 0.25) 0 10px 15px;
+		transform: translateY(-2px);
+	}
+
+	.button-27:active {
+		box-shadow: none;
+		transform: translateY(0);
+	}
+
+	.button-27 {  
+	}
+
+	table,
+	th,
+	td {
+		border: 0px solid #bcbcbc;
+		font-size: 13pt;
+		padding: 8px;
+
+	}
+
+	table {
+		width: 1200px;
+	}
+
+	.line {
+		border-bottom: 1px solid black;
+	}
+
+	.box {
+		width: 20px;
+		height: 20px;
+	}
+
+	* {
+		margin: 0;
+		padding: 0;
+		border: 0px solid #222;
+	}
+
+	.wrap {
+		height: 100%;
+		width: 100%;
+		background-image: url(img/background.jpg);
+		background-position: center;
+		background-size: cover;
+		position: absolute;
+	}
+
+	.wrap h1 {
+		text-align: center;
+	}
+
+	.form-wrap {
+		width: 500px;
+		height: 600px;
+		position: relative;
+		margin: 1.5% auto;
+		background: #fff;
+		padding: 5px;
+		overflow: hidden;
+	}
+
+	.button-wrap {
+		width: 300px;
+		margin: 35px auto;
+		position: relative;
+		box-shadow: 0 0 600px 9px #ffffff;
+		border-radius: 30px;
+
+	}
+
+	.togglebtn {
+		padding: 10px 0 10px 60px;
+		cursor: pointer;
+		background: transparent;
+		border: 0;
+		outline: none;
+		position: relative;
+		text-align: center;
+
+	}
+
+	#btn {
+		top: 0;
+		left: 0;
+		position: absolute;
+		width: 150px;
+		height: 100%;
+		background: linear-gradient(to right, #5cd3f0, #daf8ff);
+		border-radius: 30px;
+		transition: .5s;
+		text-align: center;
+	}
+
+	.input-group {
+		top: 190px;
+		position: absolute;
+		width: 100%;
+		transition: .5s;
+
+	}
+
+	.input-field {
+		width: 50%;
+		padding: 10px 20px;
+		margin: 10px 0;
+		border: 1px solid #999;
+		outline: none;
+		background: transparent;
+	}
+
+	.submit {
+		width: 90px;
+		height: 30px;
+		cursor: pointer;
+		display: inline-block;
+		margin: auto;
+		background: linear-gradient(to right,  #5cd3f0, #e4f4f8);
+		border: 0;
+		outline: none;
+		border-radius: 30px;
+		margin-top: 1rem;
+	}
+
+	.checkbox {
+		margin: 30px 10px 30px 0;
+	}
+
+	span {
+		color: #777;
+		font-size: 12px;
+		bottom: 68px;
+		position: absolute;
+	}
+
+	#login {
+		left: 0;
+	}
+
+	#register {
+		left: 550px;
+	}
+</style>
+
+<body>
+
+	<!-- Start Header Area -->
+	<header class="header_area sticky-header">
+		<div class="main_menu">
+			<nav class="navbar navbar-expand-lg navbar-light main_box">
+				<div class="container">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<a class="navbar-brand logo_h" th:href="@{/closet}"><img
+						th:src="@{/img/logo.png}" alt="" style="width: 70px;"></a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse offset"
+						id="navbarSupportedContent">
+						<ul class="nav navbar-nav menu_nav ml-auto">
+							<li class="nav-item active"><a class="nav-link"
+								th:href="@{/closet}" style="font-size: 11pt;">Home</a></li>
+
+							<li class="nav-item submenu dropdown"><a th:href="@{/#}"
+								class="nav-link dropdown-toggle" data-toggle="dropdown"
+								role="button" aria-haspopup="true" aria-expanded="false"
+								style="font-size: 11pt;">옷장</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/upload}" style="font-size: 11pt;">나만의
+											옷장 등록</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/closet}" style="font-size: 11pt;">나만의
+											옷장</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/diary}" style="font-size: 11pt;">다이어리</a></li>
+								</ul></li>
+							<li class="nav-item submenu dropdown"><a th:href="@{/#}"
+								class="nav-link dropdown-toggle" data-toggle="dropdown"
+								role="button" aria-haspopup="true" aria-expanded="false"
+								style="font-size: 11pt;">코디</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/manCoordi}" style="font-size: 11pt;">남자
+											코디 추천</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/womanCoordi}" style="font-size: 11pt;">여자
+											코디 추천</a></li>
+								</ul></li>
+							<li class="nav-item"><a class="nav-link"
+								th:href="@{/closet/community}" style="font-size: 11pt;">커뮤니티</a></li>
+							<li class="nav-item submenu dropdown"><a th:href="@{/#}"
+								class="nav-link dropdown-toggle" data-toggle="dropdown"
+								role="button" aria-haspopup="true" aria-expanded="false"
+								style="font-size: 11pt;">고객센터</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/notice}" style="font-size: 11pt;">공지사항
+									</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/contact}" style="font-size: 11pt;">CONTACT
+									</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/qna}" style="font-size: 11pt;">QnA </a></li>
+								</ul></li>
+							<li class="nav-item"><a class="nav-link"
+								th:href="@{/closet/login}" sec:authorize="isAnonymous()"
+								style="font-size: 11pt;">Login</a> <a class="nav-link"
+								th:href="@{/closet/mypage}" sec:authorize="isAuthenticated()"
+								style="font-size: 11pt; padding-right: 38px;">마이페이지</a> <a
+								class="nav-link" th:href="@{/closet/logout}"
+								sec:authorize="isAuthenticated()" style="font-size: 11pt;">Logout</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<!-- End Header Area -->
+
+	<!-- Start Banner Area -->
+
+	<!-- End Banner Area -->
+
+
+	<!--================Contact Area =================-->
+	<br><br>
+	<div class="wrap">
+		<br><br><br><br><br><br>
+		<center>
+		<img th:src="@{/img/key.png}" alt="" style="width: 90px;">
+		<br><br>
+		<div class="form-wrap" >
+			<h4>입력하신 이메일로 임시 비밀번호를 보내드렸습니다.</h4>
+			<br>
+			<h4>임시 비밀번호로 로그인하셔서 비밀번호 변경을 진행해주세요.</h4>
+			<br>
+			<div style="display: inline-block; padding: 5px;"> 
+				<button class="submit" type="button" onclick="location.href='/closet/login'">로그인</button>
+				<button class="submit" type="button" onclick="location.href='/closet'">메인으로</button>
+				<button class="submit" type="button" onclick="history.go(-1);">뒤로가기</button>
+			</div>
+		</div>
+	</div>
+</center>
+	<br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br>
+
+
+	<!-- start footer Area -->
+	<footer class="footer-area section_gap">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3  col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6>비트교육센터 3조 7777</h6>
+						<img th:src="@{/img/logo.png}" alt=""
+							style="width: 80px; max-width: 100%; height: auto;">
+					</div>
+				</div>
+				<div class="col-lg-3  col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6>GITHUB</h6>
+						<p></p>
+						<div class="footer-social d-flex align-items-center">
+							<a
+								th:href="@{https://github.com/orgs/BitFinalProject2022/repositories}"
+								target="_blank"><img th:src="@{/img/github.png}" alt=""
+								style="width: 60px;"></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3  col-md-6 col-sm-6">
+					<div class="single-footer-widget mail-chimp">
+						<h6 class="mb-20">QUICK MENU</h6>
+						<a th:href="@{/closet/upload}"> - 나만의 옷 등록</a><br> <a
+							th:href="@{/closet/closet}"> - 나만의 옷장</a><br> <a
+							th:href="@{/closet/diary}"> - 다이어리</a><br> <a
+							th:href="@{/closet/community}"> - 커뮤니티</a><br> <a
+							th:href="@{/closet/contact}"> - CONTACT US</a><br> <a
+							th:href="@{/closet/login}" sec:authorize="isAnonymous()"> -
+							LOGIN</a> <a th:href="@{/closet/logout}"
+							sec:authorize="isAuthenticated()"> - LOGOUT</a>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6>ADDRESS</h6>
+						<p style="color: #5CD3F0;">서울특별시 서초구 서초대로74길33 비트빌 3층</p>
+						<div class="footer-social d-flex align-items-center"></div>
+					</div>
+				</div>
+			</div>
+			<br> <br>
+			<div
+				class="footer-bottom d-flex justify-content-center align-items-center flex-wrap"
+				style="color: black;">
+				<p class="footer-text m-0">Copyright 2022. 7777 all rights
+					reserved.</p>
+			</div>
+		</div>
+	</footer>
+	<!-- End footer Area -->
+
+
+	<!--================End Contact Success and Error message Area =================-->
+
+
+	<script th:src="@{/js/vendor/jquery-2.2.4.min.js}"></script>
+	<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js}"></script>
+	<script th:src="@{/js/vendor/bootstrap.min.js}"></script>
+	<script th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
+	<script th:src="@{/js/jquery.nice-select.min.js}"></script>
+	<script th:src="@{/js/jquery.sticky.js}"></script>
+	<script th:src="@{/js/nouislider.min.js}"></script>
+	<script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+	<script th:src="@{/js/owl.carousel.min.js}"></script>
+	<!--gmaps Js-->
+	<script th:src="@{https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE}"></script>
+	<script th:src="@{/js/gmaps.min.js}"></script>
+	<script th:src="@{/js/main.js}"></script>
+	<script th:src="@{/js/spring.js}"></script>
+	<script th:src="@{http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js}"></script>
+	<script>
+		var x = document.getElementById("login");
+		var y = document.getElementById("register");
+		var z = document.getElementById("btn");
+
+
+		function login() {
+			x.style.left = "50px";
+			y.style.left = "540px";
+			z.style.left = "0";
+		}
+
+		function register() {
+			x.style.left = "-540px";
+			y.style.left = "50px";
+			z.style.left = "150px";
+		}
+	</script>
+</body>
+
+</html>

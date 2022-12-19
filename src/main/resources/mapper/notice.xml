@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.showmual.dao.NoticeDao">
+	
+	<resultMap id="noticeResult" type="noticeVo">
+		<result property="noticeNo" column="noticeNo" />
+		<result property="title" column="title" />
+		<result property="contents" column="contents" />
+		<result property="writeDate" column="writeDate" />
+	</resultMap>
+	
+	<select id="selectAllNotice" resultMap="noticeResult" parameterType="NoticeVo" >
+		<![CDATA[
+			select N.noticeNo, N.title, N.contents, DATE_FORMAT(N.writeDate, '%Y년 %m월 %d일') AS writeDate
+			from notice_tbl N
+			order by N.writeDate desc;
+		]]>
+	</select>
+	
+	<select id="selectNotice" resultType="noticeVo" parameterType="int">
+		<![CDATA[
+			select N.noticeNo, N.title, DATE_FORMAT(N.writeDate, '%Y년 %m월 %d일') AS writeDate, N.contents
+			from notice_tbl N
+			where N.noticeNo = #{noticeNo};
+		]]>
+	</select>
+	
+	<insert id="insertNewNotice" parameterType="noticeVo">
+		<![CDATA[
+			insert into notice_tbl(title, writeDate, contents)
+			values (#{title}, default, #{contents})
+		]]>
+	</insert>
+	
+	<update id="updateNotice" parameterType="noticeVo">
+		<![CDATA[
+			update notice_tbl set Title= #{title}, contents=#{contents}
+			where noticeNo = #{noticeNo}
+		]]>
+	</update>
+	
+	<delete id="deleteArticle" parameterType="int">
+		<![CDATA[
+			delete from notice_tbl where noticeNo=#{noticeNo}
+		]]>
+	</delete>
+	
+</mapper>

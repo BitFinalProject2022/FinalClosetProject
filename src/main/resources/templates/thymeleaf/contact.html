@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	class="no-js">
+<head>
+<meta charset="UTF-8">
+<head>
+<!-- Mobile Specific Meta -->
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Favicon-->
+<link rel="shortcut icon" th:href="@{/img/logo_small.png}">
+<!-- Author Meta -->
+<meta name="author" content="CodePixar">
+<!-- Meta Description -->
+<meta name="description" content="">
+<!-- Meta Keyword -->
+<meta name="keywords" content="">
+<!-- meta character set -->
+<meta charset="UTF-8">
+<!-- Site Title -->
+<title>7777 > Contact us</title>
+<!--
+			CSS
+			============================================= -->
+<link rel="stylesheet" th:href="@{/css/linearicons.css}">
+<link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+<link rel="stylesheet" th:href="@{/css/themify-icons.css}">
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+<link rel="stylesheet" th:href="@{/css/owl.carousel.css}">
+<link rel="stylesheet" th:href="@{/css/nice-select.css}">
+<link rel="stylesheet" th:href="@{/css/nouislider.min.css}">
+<link rel="stylesheet" th:href="@{/css/ion.rangeSlider.css}" />
+<link rel="stylesheet" th:href="@{/css/ion.rangeSlider.skinFlat.css}" />
+<link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+<link rel="stylesheet" th:href="@{/css/main.css}">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+
+<style>
+.row {
+	flex-wrap: unset;
+}
+
+.single-footer-widget {
+	float: left;
+}
+
+.col-lg-3 {
+	max-width: 15% !important;
+}
+
+* {
+	margin: 0 auto;
+}
+/* CSS */
+.button-27 {
+	appearance: none;
+	background-color: #5cd3f0;
+	border: 2px solid #74cbe0;
+	border-radius: 15px;
+	box-sizing: border-box;
+	color: #FFFFFF;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 16px;
+	line-height: normal;
+	margin: 0;
+	min-height: 50px;
+	min-width: 150px;
+	outline: none;
+	text-align: center;
+	text-decoration: none;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+	will-change: transform;
+}
+
+.button-27:disabled {
+	pointer-events: none;
+}
+
+.button-27:hover {
+	box-shadow: rgba(0, 0, 0, 0.25) 0 10px 15px;
+	transform: translateY(-2px);
+}
+
+.button-27:active {
+	box-shadow: none;
+	transform: translateY(0);
+}
+
+.nav-link:hover {
+	color: #5CD3F0 !important;
+	background-color: #fff !important;
+}
+</style>
+
+<body>
+
+	<!-- Start Header Area -->
+	<header class="header_area sticky-header">
+		<div class="main_menu">
+			<nav class="navbar navbar-expand-lg navbar-light main_box">
+				<div class="container">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<a class="navbar-brand logo_h" th:href="@{/closet}"><img
+						th:src="@{/img/logo.png}" alt="" style="width: 70px;"></a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse offset"
+						id="navbarSupportedContent">
+						<ul class="nav navbar-nav menu_nav ml-auto">
+							<li class="nav-item active"><a class="nav-link"
+								th:href="@{/closet}" style="font-size: 11pt;">Home</a></li>
+
+							<li class="nav-item submenu dropdown"><a th:href="@{/#}"
+								class="nav-link dropdown-toggle" data-toggle="dropdown"
+								role="button" aria-haspopup="true" aria-expanded="false"
+								style="font-size: 11pt;">옷장</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/upload}" style="font-size: 11pt;">나만의
+											옷장 등록</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/closet}" style="font-size: 11pt;">나만의
+											옷장</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/diary}" style="font-size: 11pt;">다이어리</a></li>
+								</ul></li>
+							<li class="nav-item submenu dropdown"><a th:href="@{/#}"
+								class="nav-link dropdown-toggle" data-toggle="dropdown"
+								role="button" aria-haspopup="true" aria-expanded="false"
+								style="font-size: 11pt;">코디</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/manCoordi}" style="font-size: 11pt;">남자
+											코디 추천</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/womanCoordi}" style="font-size: 11pt;">여자
+											코디 추천</a></li>
+								</ul></li>
+							<li class="nav-item"><a class="nav-link"
+								th:href="@{/closet/community}" style="font-size: 11pt;">커뮤니티</a></li>
+							<li class="nav-item submenu dropdown"><a th:href="@{/#}"
+								class="nav-link dropdown-toggle" data-toggle="dropdown"
+								role="button" aria-haspopup="true" aria-expanded="false"
+								style="font-size: 11pt;">고객센터</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/notice}" style="font-size: 11pt;">공지사항
+									</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/contact}" style="font-size: 11pt;">CONTACT
+									</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/qna}" style="font-size: 11pt;">QnA </a></li>
+								</ul></li>
+							<li class="nav-item"><a class="nav-link"
+								th:href="@{/closet/login}" sec:authorize="isAnonymous()"
+								style="font-size: 11pt;">Login</a> <a class="nav-link"
+								th:href="@{/closet/mypage}" sec:authorize="isAuthenticated()"
+								style="font-size: 11pt; padding-right: 38px;">마이페이지</a> <a
+								class="nav-link" th:href="@{/closet/logout}"
+								sec:authorize="isAuthenticated()" style="font-size: 11pt;">Logout</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<!-- End Header Area -->
+
+	<!-- Start Banner Area -->
+
+	<!-- End Banner Area -->
+
+
+	<!--================Contact Area =================-->
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<center>
+		<img th:src="@{/img/page6.png}" alt="" style="width: 300px;">
+	</center>
+	<br>
+	<center>
+		<iframe
+			th:src="@{https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.563194993164!2d127.02543101564672!3d37.494632935999924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca15a8df30f01%3A0x44f6db1c2b6c3bf7!2z67mE7Yq46rWQ7Jyh7IS87YSw!5e0!3m2!1sko!2skr!4v1665645164250!5m2!1sko!2skr}"
+			width="600" height="450" style="border: 0;" allowfullscreen=""
+			loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+	</center>
+	<br>
+	<br>
+	<section class="contact_area section_gap_bottom">
+		<div class="container">
+			<div id="mapBox" class="mapBox" data-lat="40.701083"
+				data-lon="-74.1522848" data-zoom="13"
+				data-info="PO Box CT16122 Collins Street West, Victoria 8007, Australia."
+				data-mlat="40.701083" data-mlon="-74.1522848"></div>
+			<div class="row">
+				<div class="col-lg-3">
+					<div class="contact_info">
+						<div class="info_item">
+							<img th:src="@{/img/building.png}" alt="빌딩" style="width: 30px;">
+							<h6>
+								서울특별시 서초구 서초대로74길33 <br>비트빌 3층
+							</h6>
+						</div>
+						<br>
+						<div class="info_item">
+							<img th:src="@{/img/call.png}" alt="빌딩" style="width: 30px;">
+							<h6>
+								<a th:href="@{/#}">02-3486-3456</a>
+							</h6>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-9">
+					<form action="/closet/addQnA"
+						method="post" id="contactForm">
+						<input type="hidden" th:name="${_csrf.parameterName}"
+							th:value="${_csrf.token}" />
+						<div class="">
+							<div class="form-group">
+								<h3 style="color: #5cd3f0">문의사항이 있으시면 남겨주세요.</h3>
+								<br>
+								<textarea class="form-control"
+									style="height: 40px; width: 580px; resize: none;" id="subject"
+									name="title" placeholder="제목을 입력하세요."
+									onfocus="this.placeholder = ''"
+									onblur="this.placeholder = '제목을 입력하세요.'" required></textarea>
+							</div>
+							<div class="form-group">
+								<textarea class="form-control"
+									style="height: 200px; width: 580px; resize: none;" id="message"
+									name="content" placeholder="메시지를 입력하세요."
+									onfocus="this.placeholder = ''"
+									onblur="this.placeholder = '메시지를 입력하세요.'" required></textarea>
+							</div>
+							<br>
+						</div>
+					</form>
+					<button type="submit" value="submit" class="button-27">문의사항
+						남기기</button>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- start footer Area -->
+	<footer class="footer-area section_gap">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3  col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6>비트교육센터 3조 7777</h6>
+						<img th:src="@{/img/logo.png}" alt=""
+							style="width: 80px; max-width: 100%; height: auto;">
+					</div>
+				</div>
+				<div class="col-lg-3  col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6>GITHUB</h6>
+						<p></p>
+						<div class="footer-social d-flex align-items-center">
+							<a
+								th:href="@{https://github.com/orgs/BitFinalProject2022/repositories}"
+								target="_blank"><img th:src="@{/img/github.png}" alt=""
+								style="width: 60px; text-align: left"></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3  col-md-6 col-sm-6">
+					<div class="single-footer-widget mail-chimp">
+						<h6 class="mb-20">QUICK MENU</h6>
+						<a th:href="@{/closet/upload}"> - 나만의 옷 등록</a><br> <a
+							th:href="@{/closet/closet}"> - 나만의 옷장</a><br> <a
+							th:href="@{/closet/diary}"> - 다이어리</a><br> <a
+							th:href="@{/closet/community}"> - 커뮤니티</a><br> <a
+							th:href="@{/closet/contact}"> - CONTACT US</a><br> <a
+							th:href="@{/closet/login}" sec:authorize="isAnonymous()"> -
+							LOGIN</a> <a th:href="@{/closet/logout}"
+							sec:authorize="isAuthenticated()"> - LOGOUT</a>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6>ADDRESS</h6>
+						<p style="color: #5cd3f0;">서울특별시 서초구 서초대로74길33 비트빌 3층</p>
+						<div class="footer-social d-flex align-items-center"></div>
+					</div>
+				</div>
+			</div>
+			<br> <br>
+			<div
+				class="footer-bottom d-flex justify-content-center align-items-center flex-wrap"
+				style="color: black;">
+				<p class="footer-text m-0">Copyright 2022. 7777 all rights
+					reserved.</p>
+			</div>
+		</div>
+	</footer>
+	<!-- End footer Area -->
+
+	<!--================Contact Success and Error message Area =================-->
+	<div id="success" class="modal modal-message fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<i class="fa fa-close"></i>
+					</button>
+					<h2>Thank you</h2>
+					<p>Your message is successfully sent...</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modals error -->
+
+	<div id="error" class="modal modal-message fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<i class="fa fa-close"></i>
+					</button>
+					<h2>Sorry !</h2>
+					<p>Something went wrong</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--================End Contact Success and Error message Area =================-->
+
+
+	<script th:src="@{/js/vendor/jquery-2.2.4.min.js}"></script>
+	<script
+		th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js}"></script>
+	<script th:src="@{/js/vendor/bootstrap.min.js}"></script>
+	<script th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
+	<script th:src="@{/js/jquery.nice-select.min.js}"></script>
+	<script th:src="@{/js/jquery.sticky.js}"></script>
+	<script th:src="@{/js/nouislider.min.js}"></script>
+	<script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+	<script th:src="@{/js/owl.carousel.min.js}"></script>
+	<!--gmaps Js-->
+	<script
+		th:src="@{https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE}"></script>
+	<script th:src="@{/js/gmaps.min.js}"></script>
+	<script th:src="@{/js/main.js}"></script>
+</body>
+
+</html>

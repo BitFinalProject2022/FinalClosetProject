@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.showmual.dao.StyleDao">
+	
+	<resultMap id="manStyleResult" type="manStyleVo">
+		<result property="menId" column="menId" />
+		<result property="temperature" column="temperature" />
+		<result property="colorName" column="colorName" />
+		<result property="colorCode" column="colorCode" />
+		<result property="styleName" column="styleName" />
+		<result property="styleCode" column="styleCode" />
+		<result property="hashtagName" column="hashtagName" />
+		<result property="hashtagCode" column="hashtagCode" />
+		<result property="imagePath" column="imagePath" />
+		<result property="imageName" column="imageName" />
+	</resultMap>
+	
+	<resultMap id="womanStyleResult" type="womanStyleVo">
+		<result property="womenId" column="womenId" />
+		<result property="temperature" column="temperature" />
+		<result property="colorName" column="colorName" />
+		<result property="colorCode" column="colorCode" />
+		<result property="styleName" column="styleName" />
+		<result property="styleCode" column="styleCode" />
+		<result property="hashtagName" column="hashtagName" />
+		<result property="hashtagCode" column="hashtagCode" />
+		<result property="imagePath" column="imagePath" />
+		<result property="imageName" column="imageName" />
+	</resultMap>
+	
+	
+	<select id="selectManCoordinate" resultMap="manStyleResult" parameterType="manStyleVo" >
+		<![CDATA[
+			
+			select M.menId, M.temperature, C.colorName, S.styleName, H.hashtagName, M.imagePath, M.imageName
+			from man_tbl M
+			join color_tbl C on M.colorCode = C.colorCode
+			join style_tbl S on M.styleCode = S.styleCode
+			join hashtag_tbl H on M.hashtagCode = H.hashtagCode
+			
+		]]>
+		
+			<where>
+				<if test="temperatureList != null and temperatureList != ''">
+					AND M.temperature in
+						<foreach item="temperatureList" index="index" collection="temperatureList"  open="(" separator="," close=")">
+	            			#{temperatureList}
+        				</foreach>
+				</if>
+				<if test="colorCodeList != null and colorCodeList != ''">
+					AND M.colorCode in
+						<foreach item="colorCodeList" index="index" collection="colorCodeList"  open="(" separator="," close=")">
+	            			#{colorCodeList}
+        				</foreach>
+				</if>
+				<if test="styleCodeList != null and styleCodeList != ''">
+					AND M.styleCode in
+						<foreach item="styleCodeList" index="index" collection="styleCodeList"  open="(" separator="," close=")">
+	            			#{styleCodeList}
+        				</foreach>
+				</if>
+				<if test="hashtagCodeList != null and hashtagCodeList != ''">
+					AND M.hashtagCode in
+						<foreach item="hashtagCodeList" index="index" collection="hashtagCodeList"  open="(" separator="," close=")">
+	            			#{hashtagCodeList}
+        				</foreach>
+				</if>
+			</where>
+			
+	</select>
+	
+	
+	<select id="selectWomenCoordinate" resultMap="womanStyleResult" parameterType="womanStyleVo" >
+		<![CDATA[
+			
+			select W.womenId, W.temperature, C.colorName, S.styleName, H.hashtagName, W.imagePath, W.imageName
+			from woman_tbl W
+			join color_tbl C on W.colorCode = C.colorCode
+			join style_tbl S on W.styleCode = S.styleCode
+			join hashtag_tbl H on W.hashtagCode = H.hashtagCode
+			
+		]]>
+		
+		<where>
+			<if test="temperatureList != null and temperatureList != ''">
+				AND W.temperature in
+					<foreach item="temperatureList" index="index" collection="temperatureList"  open="(" separator="," close=")">
+            			#{temperatureList}
+       				</foreach>
+			</if>
+			<if test="colorCodeList != null and colorCodeList != ''">
+				AND W.colorCode in
+					<foreach item="colorCodeList" index="index" collection="colorCodeList"  open="(" separator="," close=")">
+            			#{colorCodeList}
+       				</foreach>
+			</if>
+			<if test="styleCodeList != null and styleCodeList != ''">
+				AND W.styleCode in
+					<foreach item="styleCodeList" index="index" collection="styleCodeList"  open="(" separator="," close=")">
+            			#{styleCodeList}
+       				</foreach>
+			</if>
+			<if test="hashtagCodeList != null and hashtagCodeList != ''">
+				AND W.hashtagCode in
+					<foreach item="hashtagCodeList" index="index" collection="hashtagCodeList"  open="(" separator="," close=")">
+            			#{hashtagCodeList}
+       				</foreach>
+			</if>
+		</where>
+		
+	</select>
+
+</mapper>

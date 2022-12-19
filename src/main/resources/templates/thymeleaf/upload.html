@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<!-- Mobile Specific Meta -->
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Favicon-->
+<link rel="shortcut icon" th:href="@{/img/logo_small.png}">
+<!-- Author Meta -->
+<meta name="author" content="CodePixar">
+<!-- Meta Description -->
+<meta name="description" content="">
+<!-- Meta Keyword -->
+<meta name="keywords" content="">
+<!-- meta character set -->
+<meta charset="UTF-8">
+<!-- Site Title -->
+<title>7777 > 나만의 옷장 등록</title>
+<!--
+		CSS
+		============================================= -->
+<link rel="stylesheet" th:href="@{/css/linearicons.css}">
+<link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+<link rel="stylesheet" th:href="@{/css/themify-icons.css}">
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+<link rel="stylesheet" th:href="@{/css/owl.carousel.css}">
+<link rel="stylesheet" th:href="@{/css/nice-select.css}">
+<link rel="stylesheet" th:href="@{/css/nouislider.min.css}">
+<link rel="stylesheet" th:href="@{/css/ion.rangeSlider.css}" />
+<link rel="stylesheet" th:href="@{/css/ion.rangeSlider.skinFlat.css}" />
+<link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+<link rel="stylesheet" th:href="@{/css/main.css}">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<link rel="stylesheet" th:href="@{/css/button.css}">
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+<style>
+.center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.form-input {
+	width: 350px;
+	padding: 20px;
+	background: #fff;
+	box-shadow: -3px -3px 7px rgba(94, 104, 121, 0.377), 3px 3px 7px
+		rgba(94, 104, 121, 0.377);
+}
+
+.form-input input {
+	display: none;
+}
+
+.form-input label {
+	display: block;
+	width: 45%;
+	height: 45px;
+	margin-left: 25%;
+	line-height: 40px;
+	text-align: center;
+	background: rgb(0, 0, 128);
+	border-style: outset;
+	color: #fff;
+	font-size: 17px;
+	text-transform: Uppercase;
+	font-weight: 500;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.form-input label:hover {
+	background: #5cd3f0;
+	color: #fff;
+}
+
+.form-input img {
+	width: 100%;
+	display: none;
+	margin-bottom: 30px;
+}
+
+.nav-link:hover {
+	color: #5CD3F0 !important;
+	background-color: #fff !important;
+}
+
+.nice-select {
+	display: none;
+}
+
+#big_category_list {
+	display: inline-block !important;
+}
+
+#small_category_list {
+	display: inline-block !important;
+}
+
+/* 로딩중 */
+
+</style>
+</head>
+
+<body>
+	<header class="header_area sticky-header">
+		<div class="main_menu">
+			<nav class="navbar navbar-expand-lg navbar-light main_box">
+				<div class="container">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<a class="navbar-brand logo_h" th:href="@{/closet}"><img
+						th:src="@{/img/logo.png}" alt="" style="width: 70px;"></a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse offset"
+						id="navbarSupportedContent">
+						<ul class="nav navbar-nav menu_nav ml-auto">
+							<li class="nav-item active"><a class="nav-link"
+								th:href="@{/closet}" style="font-size: 11pt;">Home</a></li>
+
+							<li class="nav-item submenu dropdown"><a th:href="@{/#}"
+								class="nav-link dropdown-toggle" data-toggle="dropdown"
+								role="button" aria-haspopup="true" aria-expanded="false"
+								style="font-size: 11pt;">옷장</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/upload}" style="font-size: 11pt;">나만의
+											옷장 등록</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/closet}" style="font-size: 11pt;">나만의
+											옷장</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/diary}" style="font-size: 11pt;">다이어리</a></li>
+								</ul></li>
+							<li class="nav-item submenu dropdown"><a th:href="@{/#}"
+								class="nav-link dropdown-toggle" data-toggle="dropdown"
+								role="button" aria-haspopup="true" aria-expanded="false"
+								style="font-size: 11pt;">코디</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/manCoordi}" style="font-size: 11pt;">남자
+											코디 추천</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/womanCoordi}" style="font-size: 11pt;">여자
+											코디 추천</a></li>
+								</ul></li>
+							<li class="nav-item"><a class="nav-link"
+								th:href="@{/closet/community}" style="font-size: 11pt;">커뮤니티</a></li>
+							<li class="nav-item submenu dropdown"><a th:href="@{/#}"
+								class="nav-link dropdown-toggle" data-toggle="dropdown"
+								role="button" aria-haspopup="true" aria-expanded="false"
+								style="font-size: 11pt;">고객센터</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/notice}" style="font-size: 11pt;">공지사항
+									</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/contact}" style="font-size: 11pt;">CONTACT
+									</a></li>
+									<li class="nav-item"><a class="nav-link"
+										th:href="@{/closet/qna}" style="font-size: 11pt;">QnA </a></li>
+								</ul></li>
+							<li class="nav-item"><a class="nav-link"
+								th:href="@{/closet/login}" sec:authorize="isAnonymous()"
+								style="font-size: 11pt;">Login</a> <a class="nav-link"
+								th:href="@{/closet/mypage}" sec:authorize="isAuthenticated()"
+								style="font-size: 11pt; padding-right: 38px;">마이페이지</a> <a
+								class="nav-link" th:href="@{/closet/logout}"
+								sec:authorize="isAuthenticated()" style="font-size: 11pt;">Logout</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<center>
+		<img th:src="@{/img/page1.png}" alt="" style="width: 350px;">
+	</center>
+	<br>
+	<center>
+		<h3>여러분의 옷들을 업로드하여 등록해주세요 :)</h3>
+	</center>
+	<br>
+	<br>
+	<br>
+
+	<form method="post" action="/closet/registImage" enctype="multipart/form-data" id="uploadForm">
+		<!-- csrf 안붙여주면 POST방식 불가능하다는 에러 발생 -->
+		<input type="hidden" th:name="${_csrf.parameterName}"
+			th:value="${_csrf.token}" />
+		<div class="center">
+			<div class="form-input">
+
+				<div class="preview">
+					<img id="file-ip-1-preview">
+				</div>
+				<label for="file-ip-1">이미지 업로드</label> <input type="file"
+					id="file-ip-1" name=files accept="image/*"
+					onchange="showPreview(event);">
+			</div>
+		</div>
+		<br> <br>
+		<div class="col-md-12 form-group" style="text-align: center;">
+			<button type="button" id="uploadBtn" class="button-27"
+				onclick="getQtyandPath();">분석하기</button>
+			<button type="submit" id="uploadBtn" class="button-27">등록하기</button>
+		</div>
+		<div style="text-align: center;">
+			<br> <br>
+			<h2 id="small_category">분류 결과</h2>
+			<br>
+			<textarea name="big" id="big_category" style="display: none;"></textarea>
+			<textarea name="qty" id="qty" style="display: none;"></textarea>
+		</div>
+	</form>
+	
+	<footer class="footer-area section_gap">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3  col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6>비트교육센터 3조 7777</h6>
+						<img th:src="@{/img/logo.png}" alt=""
+							style="width: 80px; max-width: 100%; height: auto;">
+					</div>
+				</div>
+				<div class="col-lg-3  col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6>GITHUB</h6>
+						<p></p>
+						<div class="footer-social d-flex align-items-center">
+							<a
+								th:href="@{https://github.com/orgs/BitFinalProject2022/repositories}"
+								target="_blank"><img th:src="@{/img/github.png}" alt=""
+								style="width: 60px;"></a>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3  col-md-6 col-sm-6">
+					<div class="single-footer-widget mail-chimp">
+						<h6 class="mb-20">QUICK MENU</h6>
+						<a th:href="@{/closet/upload}"> - 나만의 옷 등록</a><br> <a
+							th:href="@{/closet/closet}"> - 나만의 옷장</a><br> <a
+							th:href="@{/closet/diary}"> - 다이어리</a><br> <a
+							th:href="@{/closet/community}"> - 커뮤니티</a><br> <a
+							th:href="@{/closet/contact}"> - CONTACT US</a><br> <a
+							th:href="@{/closet/login}" sec:authorize="isAnonymous()"> -
+							LOGIN</a> <a th:href="@{/closet/logout}"
+							sec:authorize="isAuthenticated()"> - LOGOUT</a>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6>ADDRESS</h6>
+						<p style="color: #5CD3F0;">서울특별시 서초구 서초대로74길33 비트빌 3층</p>
+						<div class="footer-social d-flex align-items-center"></div>
+					</div>
+				</div>
+			</div>
+			<br> <br>
+			<div
+				class="footer-bottom d-flex justify-content-center align-items-center flex-wrap"
+				style="color: black;">
+				<p class="footer-text m-0">Copyright 2022. 7777 all rights
+					reserved.</p>
+			</div>
+		</div>
+	</footer>
+	<!-- End footer Area -->
+	<script th:src="@{/js/vendor/jquery-2.2.4.min.js}"></script>
+	<script
+		th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js}"></script>
+	<script th:src="@{/js/vendor/bootstrap.min.js}"></script>
+	<script th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
+	<script th:src="@{/js/jquery.nice-select.min.js}"></script>
+	<script th:src="@{/js/jquery.sticky.js}"></script>
+	<script th:src="@{/js/nouislider.min.js}"></script>
+	<script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+	<script th:src="@{/js/owl.carousel.min.js}"></script>
+	<!--gmaps Js-->
+	<script
+		th:src="@{https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE}"></script>
+	<script th:src="@{/js/gmaps.min.js}"></script>
+	<script th:src="@{/js/main.js}"></script>
+
+
+	<script type="text/javascript">
+		function showPreview(event) {
+			if (event.target.files.length > 0) {
+				var src = URL.createObjectURL(event.target.files[0]);
+				var preview = document.getElementById("file-ip-1-preview");
+				preview.src = src;
+				preview.style.display = "block";
+			}
+		}
+		
+		// 로딩창 키는 함수
+		function openLoading() {
+			
+		    //화면 높이와 너비를 구합니다.
+		    let maskHeight = $(document).height();
+		    let maskWidth = window.document.body.clientWidth;
+		    //출력할 마스크를 설정해준다.
+		    let mask ="<div id='mask' style='position:absolute; z-index:9000; background-color:#000000; display:none; left:0; top:0;'></div>";
+		    // 로딩 이미지 주소 및 옵션
+		    let loadingImg ='';
+		    loadingImg += "<div id='loadingImg' style='position:absolute; top: calc(50% - (200px / 2)); width:100%; z-index:99999999;'>";
+		    loadingImg += " <img src='https://loadingapng.com/animation.php?image=25&fore_color=5CD3F0&back_color=FFFFFF&size=128x128&transparency=1&image_type=0&uncacher=77.76854758509654' style='position: relative; display: block; margin: 0px auto;'/>";
+		    loadingImg += "</div>"; 
+		    //레이어 추가
+		    $('body')
+		        .append(mask)
+		        .append(loadingImg)
+		    //마스크의 높이와 너비로 전체 화면을 채운다.
+		    $('#mask').css({
+		            'width' : maskWidth,
+		            'height': maskHeight,
+		            'opacity' :'0.3'
+		    });
+		    //마스크 표시
+		    $('#mask').show();  
+		    //로딩 이미지 표시
+		    $('#loadingImg').show();
+		}
+		
+		// 로딩창 끄는 함수
+		function closeLoading() {
+			
+		    $('#mask, #loadingImg').hide();
+		    $('#mask, #loadingImg').empty();
+		    
+		}
+		
+		
+		// 이미지 경로, qty 받기 (ajax 사용)
+		function getQtyandPath() {
+			
+			// 로딩 시작
+			openLoading();
+			
+			// var form = $('#uploadForm')[0];
+			let form = document.querySelector('#uploadForm');
+
+			// FormData 객체 생성
+			let formData = new FormData(form);
+
+			$.ajax({
+				type : "POST",
+				enctype : 'multipart/form-data',
+				url : "/closet/analysis",
+				data : formData,
+				processData : false,
+				contentType : false,
+				cache : false,
+				timeout : 600000,
+				success : function(data) {
+					console.log("SUCCESS : ", data);
+
+					let cloth_kind = document.querySelector('#small_category');
+					let qty = document.querySelector('#qty');
+					let big_category = document.querySelector('#big_category');
+
+					cloth_kind.innerHTML = '분류 결과 : ' + data.small_category;
+					qty.innerHTML = data.qty;
+					big_category.innerHTML = data.big;
+					
+					// 로딩 끝
+					closeLoading();
+					
+				},
+				error : function(e) {
+					console.log("ERROR : ", e);
+				}
+			});
+		};
+	</script>
+
+</body>
+</html>

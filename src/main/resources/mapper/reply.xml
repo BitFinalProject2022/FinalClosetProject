@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.showmual.dao.ReplyDao">
+
+	<resultMap id="replyResult" type="replyVo">
+		<result property="rno" column="rno" />
+		<result property="bno" column="bno" />
+		<result property="userId" column="userId" />
+		<result property="nickname" column="nickname" />
+		<result property="username" column="username" />
+		<result property="content" column="content" />
+		<result property="regDate" column="regDate" />
+	</resultMap>
+	
+	<!-- 댓글 조회 -->
+	<select id="replyList" resultMap="replyResult" parameterType="int">
+		<![CDATA[
+		    select R.rno, R.bno, R.userId, U.nickname, U.username, R.content, DATE_FORMAT(R.regDate, '%m월 %d일') AS regDate
+			from reply_tbl R
+			join users_tbl U on R.userId = U.id
+		    where bno = #{bno}
+		    order by R.regDate desc;
+		]]>
+	</select>
+	
+	<!-- 댓글 작성 -->
+	<insert id="replyWrite" parameterType="replyVo">
+		<![CDATA[
+		    insert into reply_tbl(bno, userId, content, regDate)
+		    value(#{bno}, #{userId}, #{content}, default)
+	    ]]>
+	</insert>
+	    
+	<!-- 댓글 수정 -->
+	<update id="replyModify" parameterType="replyVo">
+		<![CDATA[
+		    update reply_tbl set content = #{content}, regDate = default
+		    where rno = #{rno} and bno = #{bno}
+	    ]]>  
+	</update>
+	
+	<!-- 댓글 삭제 -->
+	<delete id="replyDelete" parameterType="replyVo">
+		<![CDATA[
+		    delete from reply_tbl
+		    where rno = #{rno}
+	    ]]> 
+	</delete>
+
+</mapper>
